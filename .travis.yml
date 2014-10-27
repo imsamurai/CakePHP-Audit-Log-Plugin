@@ -12,6 +12,7 @@ env:
     - REQUIRE="imsamurai/cakephp-environment:dev-master phpdocumentor/phpdocumentor:2.* imsamurai/cakephp-google-chart: 1.*"
     - DB=mysql
     - CAKE_VERSION=2.5
+    - secure: MVsPraZZZyGDqzEfIdWPWY+lEIlQzkjw4I2GUHtpfq/fww8iFP/g8fermkVKwn98w6na4+NpLoT52znmBaQB38czoYHlos5QOpyr/fBAlyDdSDE+OAzPOXMjPev+os/IeXrSpWwN1aFNuRQBw8zTVNM49ZTtahJPSRl16f/WGF4=
   matrix:
     - CAKE_VERSION=2.4
     - CAKE_VERSION=2.5
