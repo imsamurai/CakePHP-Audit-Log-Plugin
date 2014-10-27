@@ -21,7 +21,6 @@ class AllAuditLogTest extends PHPUnit_Framework_TestSuite {
 	 */
 	public static function suite() {
 		$suite = new CakeTestSuite('All AuditLog Tests');
-
 		$path = App::pluginPath('AuditLog') . 'Test' . DS . 'Case' . DS;
 		$suite->addTestDirectoryRecursive($path);
 		return $suite;

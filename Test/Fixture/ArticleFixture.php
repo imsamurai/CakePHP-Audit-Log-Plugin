@@ -1,9 +1,29 @@
 <?php
 
+/**
+ * Article Fixture file
+ */
+
+/**
+ * ArticleFixture
+ * 
+ * @package AuditLogTest
+ * @subpackage Fixture
+ */
 class ArticleFixture extends CakeTestFixture {
 
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @var string
+	 */
 	public $name = 'Article';
-	
+
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @var array
+	 */
 	public $fields = array(
 		'id' => array('type' => 'integer', 'key' => 'primary'),
 		'user_id' => array('type' => 'integer', 'null' => false),
@@ -17,10 +37,9 @@ class ArticleFixture extends CakeTestFixture {
 	);
 
 	/**
-	 * records property
+	 * {@inheritdoc}
 	 *
 	 * @var array
-	 * @access public
 	 */
 	public $records = array(
 		array('user_id' => 1, 'author_id' => 1, 'title' => 'First Article', 'body' => 'First Article Body', 'published' => 'Y', 'created' => '2007-03-18 10:39:23', 'updated' => '2007-03-18 10:41:31'),

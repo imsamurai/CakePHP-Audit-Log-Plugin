@@ -1,56 +1,111 @@
 <?php
 
+/**
+ * Auditable Behavior test file
+ */
 App::uses('Model', 'Model');
 App::uses('AppModel', 'Model');
 
 /**
- * Article class
+ * Article model
  *
- * @package       cake
- * @subpackage    cake.tests.cases.libs.model
+ * @package       AuditLogTest
+ * @subpackage    Model
  */
 class Article extends CakeTestModel {
 
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @var string
+	 */
 	public $name = 'Article';
-	
+
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @var array
+	 */
 	public $actsAs = array(
 		'AuditLog.Auditable' => array(
 			'ignore' => array('ignored_field'),
 		)
 	);
-	
+
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @var array
+	 */
 	public $belongsTo = array('Author');
 
 }
 
 /**
- * Author class
+ * Author model
  *
- * @package       cake
- * @subpackage    cake.tests.cases.libs.model
+ * @package       AuditLogTest
+ * @subpackage    Model
  */
 class Author extends CakeTestModel {
 
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @var string
+	 */
 	public $name = 'Author';
-	
+
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @var array
+	 */
 	public $actsAs = array(
 		'AuditLog.Auditable'
 	);
-	
+
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @var array
+	 */
 	public $hasMany = array('Article');
 
 }
 
+/**
+ * Audit model
+ *
+ * @package       AuditLogTest
+ * @subpackage    Model
+ */
 class Audit extends CakeTestModel {
 
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @var array
+	 */
 	public $hasMany = array(
 		'AuditDelta'
 	);
 
 }
 
+/**
+ * Audit Delta model
+ *
+ * @package       AuditLogTest
+ * @subpackage    Model
+ */
 class AuditDelta extends CakeTestModel {
 
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @var array
+	 */
 	public $belongsTo = array(
 		'Audit'
 	);
@@ -59,6 +114,9 @@ class AuditDelta extends CakeTestModel {
 
 /**
  * AuditableBehavior test class.
+ * 
+ * @package       AuditLogTest
+ * @subpackage    Model.Behavior
  */
 class AuditableBehaviorTest extends CakeTestCase {
 
@@ -388,6 +446,9 @@ class AuditableBehaviorTest extends CakeTestCase {
 		$this->assertIdentical(array(), Set::extract('/AuditDelta[property_name=ignored_field]', $lastAudit));
 	}
 
+	/**
+	 * Test ignored field
+	 */
 	public function testIgnoredField() {
 		$this->Audit = ClassRegistry::init('Audit');
 		$this->AuditDelta = ClassRegistry::init('AuditDelta');

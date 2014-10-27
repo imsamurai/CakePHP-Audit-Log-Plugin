@@ -1,9 +1,29 @@
 <?php
 
+/**
+ * Audit Fixture file
+ */
+
+/**
+ * AuditFixture
+ * 
+ * @package AuditLogTest
+ * @subpackage Fixture
+ */
 class AuditFixture extends CakeTestFixture {
 
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @var string
+	 */
 	public $name = 'Audit';
-	
+
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @var array
+	 */
 	public $fields = array(
 		'id' => array('type' => 'string', 'length' => 36, 'null' => false),
 		'event' => array('type' => 'string', 'length' => 255, 'null' => false),
@@ -16,10 +36,9 @@ class AuditFixture extends CakeTestFixture {
 	);
 
 	/**
-	 * records property
+	 * {@inheritdoc}
 	 *
 	 * @var array
-	 * @access public
 	 */
 	public $records = array();
 

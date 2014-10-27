@@ -1,7 +1,14 @@
 <?php
 
 /**
+ * Auditable Behavior file
+ */
+
+/**
  * Records changes made to an object during save operations.
+ * 
+ * @package AuditLog
+ * @subpackage Model.Behavior
  */
 class AuditableBehavior extends ModelBehavior {
 
@@ -9,7 +16,7 @@ class AuditableBehavior extends ModelBehavior {
 	 * A copy of the object as it existed prior to the save. We're going
 	 * to store this off so we can calculate the deltas after save.
 	 *
-	 * @var   Object
+	 * @var array
 	 */
 	protected $_original = array();
 

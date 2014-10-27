@@ -1,9 +1,29 @@
 <?php
 
+/**
+ * AuditDelta Fixture file
+ */
+
+/**
+ * AuditDeltaFixture
+ * 
+ * @package AuditLogTest
+ * @subpackage Fixture
+ */
 class AuditDeltaFixture extends CakeTestFixture {
 
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @var string
+	 */
 	public $name = 'AuditDelta';
-	
+
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @var array
+	 */
 	public $fields = array(
 		'id' => array('type' => 'string', 'length' => 36, 'null' => false),
 		'audit_id' => array('type' => 'string', 'length' => 36, 'null' => false),
@@ -13,10 +33,9 @@ class AuditDeltaFixture extends CakeTestFixture {
 	);
 
 	/**
-	 * records property
+	 * {@inheritdoc}
 	 *
 	 * @var array
-	 * @access public
 	 */
 	public $records = array();
 
