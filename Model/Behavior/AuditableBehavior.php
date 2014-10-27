@@ -64,8 +64,10 @@ class AuditableBehavior extends ModelBehavior {
 	}
 
 	/**
-	 * Executed before a save() operation.
+	 * {@inheritdoc}
 	 *
+	 * @param Model	$Model
+	 * @param array $options
 	 * @return  boolean
 	 */
 	public function beforeSave(Model $Model, $options = array()) {
@@ -79,9 +81,10 @@ class AuditableBehavior extends ModelBehavior {
 	}
 
 	/**
-	 * Executed before a delete() operation.
+	 * {@inheritdoc}
 	 *
-	 * @param 	$Model
+	 * @param Model $Model
+	 * @param bool $cascade
 	 * @return	boolean
 	 */
 	public function beforeDelete(Model $Model, $cascade = true) {
@@ -97,12 +100,12 @@ class AuditableBehavior extends ModelBehavior {
 	}
 
 	/**
-	 * function afterSave
-	 * Executed after a save operation completes.
-	 *
-	 * @param   $created  Boolean. True if the save operation was an
-	 *                    insertion. False otherwise.
-	 * @return  void
+	 * {@inheritdoc}
+	 * 
+	 * @param Model $Model
+	 * @param bool $created
+	 * @param array $options
+	 * @return bool
 	 */
 	public function afterSave(Model $Model, $created, $options = array()) {
 		$audit = array($Model->alias => $this->_getModelData($Model));
@@ -226,10 +229,9 @@ class AuditableBehavior extends ModelBehavior {
 	}
 
 	/**
-	 * Executed after a model is deleted.
+	 * {@inheritdoc}
 	 *
-	 * @param 	$Model
-	 * @return	void
+	 * @param Model $Model
 	 */
 	public function afterDelete(Model $Model) {
 		/*
@@ -270,8 +272,8 @@ class AuditableBehavior extends ModelBehavior {
 	 * Additionally, for the HABTM data, all we care about is the IDs,
 	 * so the data will be reduced to an indexed array of those IDs.
 	 *
-	 * @param   $Model
-	 * @return  array
+	 * @param Model $Model
+	 * @return array
 	 */
 	protected function _getModelData(Model $Model) {
 		/*

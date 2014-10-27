@@ -484,6 +484,9 @@ class AuditableBehaviorTest extends CakeTestCase {
 		$this->assertEqual(0, $lastAudit);
 	}
 
+	/**
+	 * Test delete
+	 */
 	public function testDelete() {
 		$this->Audit = ClassRegistry::init('Audit');
 		$this->AuditDelta = ClassRegistry::init('AuditDelta');

@@ -1,7 +1,17 @@
 <?php
 
-/* generated on: 2012-02-21 14:38:35 : 1329856715 */
+/**
+ * Audit log schema file
+ * 
+ * generated on: 2012-02-21 14:38:35 : 1329856715 
+ */
 
+/**
+ * AuditLogSchema
+ * 
+ * @package AuditLog
+ * @subpackage Model
+ */
 class AuditLogSchema extends CakeSchema {
 
 	/**
@@ -15,7 +25,7 @@ class AuditLogSchema extends CakeSchema {
 	/**
 	 * Before callback
 	 *
-	 * @param string Event
+	 * @param array $event
 	 * @return boolean
 	 * @access public
 	 */
@@ -26,7 +36,7 @@ class AuditLogSchema extends CakeSchema {
 	/**
 	 * After callback
 	 *
-	 * @param string Event
+	 * @param array $event
 	 * @return boolean
 	 * @access public
 	 */
