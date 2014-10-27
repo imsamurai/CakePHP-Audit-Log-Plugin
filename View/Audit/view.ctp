@@ -30,25 +30,31 @@
 		<td><?= $this->Time->timeAgoInWords($data['Audit']['created']) . ' (' . $data['Audit']['created'] . ')'; ?></td>
 	</tr>
 </table>
-<h2><?= __('Audit delta'); ?></h2>
-<table class="table table-bordered table-striped">
-	<tr>
-		<th><?= __('Property name'); ?></th>
-		<th><?= __('Old value'); ?></th>
-		<th><?= __('New value'); ?></th>
-	</tr>
-	<?php
-	foreach ($data['Delta'] as $delta) {
-		?>
-
+<?php
+if ($data['Audit']['event'] === 'EDIT') {
+	?>
+	<h2><?= __('Audit delta'); ?></h2>
+	<table class="table table-bordered table-striped">
 		<tr>
-			<td><?= $delta['property_name']; ?></td>
-			<td style="white-space: pre"><?= $delta['old_value']; ?></td>
-			<td style="white-space: pre"><?= $delta['new_value']; ?></td>
+			<th><?= __('Property name'); ?></th>
+			<th><?= __('Old value'); ?></th>
+			<th><?= __('New value'); ?></th>
 		</tr>
 		<?php
-	}
-	?>
-</table>
+		foreach ($data['Delta'] as $delta) {
+			?>
+
+			<tr>
+				<td><?= $delta['property_name']; ?></td>
+				<td style="white-space: pre"><?= $delta['old_value']; ?></td>
+				<td style="white-space: pre"><?= $delta['new_value']; ?></td>
+			</tr>
+			<?php
+		}
+		?>
+	</table>
+	<?
+}
+?>
 <h2><?= __('Audit object'); ?></h2>
 <pre><?= $data['Audit']['json_object']; ?></pre>
