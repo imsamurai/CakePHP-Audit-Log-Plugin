@@ -11,6 +11,9 @@ App::uses('AppModel', 'Model');
 
 if (!class_exists('User')) {
 
+	/**
+	 * User model
+	 */
 	class User extends AppModel {
 		
 	}
