@@ -153,11 +153,7 @@ Executed after a save operation completes.</span><pre>afterSave</pre>
         </li>
         <li class="nav-header protected">» Protected
             <ul>
-                                                                                                                                                                                                                                                                    </ul>
-        </li>
-        <li class="nav-header private">» Private
-            <ul>
-                                                                            <li class="method private">
+                                                                            <li class="method protected">
                             <a href="#method__getModelData" title="_getModelData :: function _getModelData
 Retrieves the entire set model data contained to the primary
 object and any/all HABTM associated data that has been configured
@@ -169,6 +165,10 @@ with the behavior.</span><pre>_getModelData</pre>
                             </a>
                         </li>
                                                                                                                                                                                                                                     </ul>
+        </li>
+        <li class="nav-header private">» Private
+            <ul>
+                                                                                                                                                                                                                                                                    </ul>
         </li>
         <li class="nav-header">
             <i class="icon-custom icon-constant"></i> Constants
@@ -198,14 +198,23 @@ with the behavior.</span><pre>_getModelData</pre>
                                                                             </th>
                                     <td>
                                                                                     
-                                                                                <p>Default</p>
+                                                                                <p>AuditLog</p>
                                     </td>
                                 </tr>
-                                                                                                                                                                                </table>
+                                                                                                                <tr>
+                                    <th>
+                                        subpackage
+                                                                            </th>
+                                    <td>
+                                                                                    
+                                                                                <p>Model.Behavior</p>
+                                    </td>
+                                </tr>
+                                                                                                                            </table>
 
                     <h3><i class="icon-custom icon-method"></i> Methods</h3>
                                                                 <a id="method__getModelData"></a>
-                        <div class="element clickable method private  method__getModelData" data-toggle="collapse" data-target=".method__getModelData .collapse">
+                        <div class="element clickable method protected  method__getModelData" data-toggle="collapse" data-target=".method__getModelData .collapse">
                             <h2>function _getModelData
 Retrieves the entire set model data contained to the primary
 object and any/all HABTM associated data that has been configured
@@ -413,10 +422,10 @@ Executed after a save operation completes.</h2>
                     
                                                                 <h3><i class="icon-custom icon-property"></i> Properties</h3>
                                                     <a id="property__original"> </a>
-                            <div class="element clickable property  private property__original" data-toggle="collapse" data-target=".property__original .collapse">
+                            <div class="element clickable property  protected property__original" data-toggle="collapse" data-target=".property__original .collapse">
                                 <h2>A copy of the object as it existed prior to the save. We&#039;re going
 to store this off so we can calculate the deltas after save.</h2>
-                                <pre>_original : Object</pre>
+                                <pre>_original : array</pre>
                                 <div class="labels">
                                                                                                         </div>
                                 <div class="row collapse">
@@ -435,7 +444,7 @@ to store this off so we can calculate the deltas after save.</h2>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code>Object</code>
+                                            <code>array</code>
                                                                             </div>
                                 </div>
                             </div>
@@ -459,7 +468,7 @@ to store this off so we can calculate the deltas after save.</h2>
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
             <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
-            generated on Mon, 27 Oct 2014 09:01:44 +0000.<br/>
+            generated on Mon, 27 Oct 2014 10:01:13 +0000.<br/>
     </footer>
     </body>
 </html>
