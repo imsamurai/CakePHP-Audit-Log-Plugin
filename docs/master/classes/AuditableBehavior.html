@@ -118,28 +118,26 @@
             <i class="icon-custom icon-method"></i> Methods
             <ul>
                                                                                                                                                             <li class="method public">
-        <a href="#method_afterDelete" title="afterDelete :: Executed after a model is deleted.">
-            <span class="description">Executed after a model is deleted.</span><pre>afterDelete</pre>
+        <a href="#method_afterDelete" title="afterDelete :: {@inheritdoc}">
+            <span class="description">{@inheritdoc}</span><pre>afterDelete</pre>
         </a>
     </li>
 
                                                                                                         <li class="method public">
-        <a href="#method_afterSave" title="afterSave :: function afterSave
-Executed after a save operation completes.">
-            <span class="description">function afterSave
-Executed after a save operation completes.</span><pre>afterSave</pre>
+        <a href="#method_afterSave" title="afterSave :: {@inheritdoc}">
+            <span class="description">{@inheritdoc}</span><pre>afterSave</pre>
         </a>
     </li>
 
                                                                                                         <li class="method public">
-        <a href="#method_beforeDelete" title="beforeDelete :: Executed before a delete() operation.">
-            <span class="description">Executed before a delete() operation.</span><pre>beforeDelete</pre>
+        <a href="#method_beforeDelete" title="beforeDelete :: {@inheritdoc}">
+            <span class="description">{@inheritdoc}</span><pre>beforeDelete</pre>
         </a>
     </li>
 
                                                                                                         <li class="method public">
-        <a href="#method_beforeSave" title="beforeSave :: Executed before a save() operation.">
-            <span class="description">Executed before a save() operation.</span><pre>beforeSave</pre>
+        <a href="#method_beforeSave" title="beforeSave :: {@inheritdoc}">
+            <span class="description">{@inheritdoc}</span><pre>beforeSave</pre>
         </a>
     </li>
 
@@ -219,7 +217,7 @@ with the behavior.</span><pre>_getModelData</pre>
 Retrieves the entire set model data contained to the primary
 object and any/all HABTM associated data that has been configured
 with the behavior.</h2>
-                            <pre>_getModelData( $Model) : array</pre>
+                            <pre>_getModelData(\Model $Model) : array</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -235,7 +233,7 @@ so the data will be reduced to an indexed array of those IDs.</p></div>
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$Model</h4>
-                                                <code></code><p></p>
+                                                <code>\Model</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -246,99 +244,8 @@ so the data will be reduced to an indexed array of those IDs.</p></div>
                         </div>
                                             <a id="method_afterDelete"></a>
                         <div class="element clickable method public  method_afterDelete" data-toggle="collapse" data-target=".method_afterDelete .collapse">
-                            <h2>Executed after a model is deleted.</h2>
-                            <pre>afterDelete( $Model) : void</pre>
-                            <div class="labels">
-                                                                                                                                                                                            </div>
-
-                            
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"></div>
-
-                                    <table class="table">
-                                                                            </table>
-
-                                                                            <h3>Arguments</h3>
-                                                                                    <div class="subelement argument">
-                                                <h4>$Model</h4>
-                                                <code></code><p></p>
-                                            </div>
-                                                                            
-                                                                    </div>
-                            </div>
-
-                        </div>
-                                            <a id="method_afterSave"></a>
-                        <div class="element clickable method public  method_afterSave" data-toggle="collapse" data-target=".method_afterSave .collapse">
-                            <h2>function afterSave
-Executed after a save operation completes.</h2>
-                            <pre>afterSave(\Model $Model,  $created,  $options = array()) : void</pre>
-                            <div class="labels">
-                                                                                                                                                                                            </div>
-
-                            
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"></div>
-
-                                    <table class="table">
-                                                                            </table>
-
-                                                                            <h3>Arguments</h3>
-                                                                                    <div class="subelement argument">
-                                                <h4>$Model</h4>
-                                                <code>\Model</code><p></p>
-                                            </div>
-                                                                                    <div class="subelement argument">
-                                                <h4>$created</h4>
-                                                <code></code><p><p>Boolean. True if the save operation was an</p>
-<pre><code>               insertion. False otherwise.</code></pre></p>
-                                            </div>
-                                                                                    <div class="subelement argument">
-                                                <h4>$options</h4>
-                                                <code></code><p></p>
-                                            </div>
-                                                                            
-                                                                    </div>
-                            </div>
-
-                        </div>
-                                            <a id="method_beforeDelete"></a>
-                        <div class="element clickable method public  method_beforeDelete" data-toggle="collapse" data-target=".method_beforeDelete .collapse">
-                            <h2>Executed before a delete() operation.</h2>
-                            <pre>beforeDelete( $Model,  $cascade = true) : boolean</pre>
-                            <div class="labels">
-                                                                                                                                                                                            </div>
-
-                            
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"></div>
-
-                                    <table class="table">
-                                                                            </table>
-
-                                                                            <h3>Arguments</h3>
-                                                                                    <div class="subelement argument">
-                                                <h4>$Model</h4>
-                                                <code></code><p></p>
-                                            </div>
-                                                                                    <div class="subelement argument">
-                                                <h4>$cascade</h4>
-                                                <code></code><p></p>
-                                            </div>
-                                                                            
-                                                                            <h3>Response</h3>
-                                        <code>boolean</code><p></p>
-                                                                    </div>
-                            </div>
-
-                        </div>
-                                            <a id="method_beforeSave"></a>
-                        <div class="element clickable method public  method_beforeSave" data-toggle="collapse" data-target=".method_beforeSave .collapse">
-                            <h2>Executed before a save() operation.</h2>
-                            <pre>beforeSave(\Model $Model,  $options = array()) : boolean</pre>
+                            <h2>{@inheritdoc}</h2>
+                            <pre>afterDelete(\Model $Model) </pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -362,9 +269,100 @@ Executed after a save operation completes.</h2>
                                                 <h4>$Model</h4>
                                                 <code>\Model</code><p></p>
                                             </div>
+                                                                            
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_afterSave"></a>
+                        <div class="element clickable method public  method_afterSave" data-toggle="collapse" data-target=".method_afterSave .collapse">
+                            <h2>{@inheritdoc}</h2>
+                            <pre>afterSave(\Model $Model, boolean $created, array $options = array()) : boolean</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$Model</h4>
+                                                <code>\Model</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$created</h4>
+                                                <code>boolean</code><p></p>
+                                            </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$options</h4>
-                                                <code></code><p></p>
+                                                <code>array</code><p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_beforeDelete"></a>
+                        <div class="element clickable method public  method_beforeDelete" data-toggle="collapse" data-target=".method_beforeDelete .collapse">
+                            <h2>{@inheritdoc}</h2>
+                            <pre>beforeDelete(\Model $Model, boolean $cascade = true) : boolean</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$Model</h4>
+                                                <code>\Model</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$cascade</h4>
+                                                <code>boolean</code><p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>boolean</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_beforeSave"></a>
+                        <div class="element clickable method public  method_beforeSave" data-toggle="collapse" data-target=".method_beforeSave .collapse">
+                            <h2>{@inheritdoc}</h2>
+                            <pre>beforeSave(\Model $Model, array $options = array()) : boolean</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                            </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$Model</h4>
+                                                <code>\Model</code><p></p>
+                                            </div>
+                                                                                    <div class="subelement argument">
+                                                <h4>$options</h4>
+                                                <code>array</code><p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -468,7 +466,7 @@ to store this off so we can calculate the deltas after save.</h2>
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
             <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
-            generated on Mon, 27 Oct 2014 10:01:13 +0000.<br/>
+            generated on Mon, 27 Oct 2014 10:22:18 +0000.<br/>
     </footer>
     </body>
 </html>
