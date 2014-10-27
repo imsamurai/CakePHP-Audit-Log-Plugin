@@ -139,7 +139,7 @@ class AuditableBehavior extends ModelBehavior {
 				'event' => $created ? 'CREATE' : 'EDIT',
 				'model' => $Model->alias,
 				'entity_id' => $Model->id,
-				'json_object' => json_encode($audit),
+				'json_object' => json_encode($audit, JSON_PRETTY_PRINT),
 				'user_id' => isset($source['id']) ? $source['id'] : null,
 				'description' => isset($source['description']) ? $source['description'] : null,
 			)
@@ -252,7 +252,7 @@ class AuditableBehavior extends ModelBehavior {
 				'event' => 'DELETE',
 				'model' => $Model->alias,
 				'entity_id' => $Model->id,
-				'json_object' => json_encode($audit),
+				'json_object' => json_encode($audit, JSON_PRETTY_PRINT),
 				'user_id' => isset($source['id']) ? $source['id'] : null,
 				'description' => isset($source['description']) ? $source['description'] : null,
 			)

@@ -50,3 +50,5 @@
 	}
 	?>
 </table>
+<h2><?= __('Audit object'); ?></h2>
+<pre><?= $data['Audit']['json_object']; ?></pre>
