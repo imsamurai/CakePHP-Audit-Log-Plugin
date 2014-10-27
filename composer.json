@@ -1,5 +1,5 @@
 {
-	"name": "robwilkerson/audit-log",
+	"name": "imsamurai/audit-log",
 	"type": "cakephp-plugin",
 	"keywords": [
 		"cakephp",
@@ -8,17 +8,27 @@
 		"plugin"
 	],
 	"description": "CakePHP Audit Plugin",
-	"homepage": "https://github.com/robwilkerson/CakePHP-Audit-Log-Plugin",
+	"homepage": "https://github.com/imsamurai/CakePHP-Audit-Log-Plugin",
 	"license": "MIT",
 	"authors": [
 		{
 			"name": "Rob Wilkerson",
 			"homepage": "http://robwilkerson.org"
+		},
+		{
+			"name": "Shamray Alexander",
+			"email": "im.samuray@gmail.com",
+			"homepage": "https://imsamurai.me"
 		}
 	],
 	"require": {
 		"php": ">=5.3.0",
 		"composer/installers": "*"
+	},
+	"support": {
+		"email": "im.samuray@gmail.com",
+		"issues": "https://github.com/imsamurai/CakePHP-Audit-Log-Plugin/issues",
+		"source": "https://github.com/imsamurai/CakePHP-Audit-Log-Plugin/"
 	},
 	"extra": {
 		"installer-name": "AuditLog"
