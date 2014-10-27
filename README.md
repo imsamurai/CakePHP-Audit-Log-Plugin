@@ -1,4 +1,10 @@
-# Audit Log Plugin
+## API Documentation
+
+Check out [Serializable Behavior API Documentation](http://imsamurai.github.io/CakePHP-Audit-Log-Plugin/docs/master/)
+
+## Abstract
+
+[![Build Status](https://travis-ci.org/imsamurai/CakePHP-Audit-Log-Plugin.png)](https://travis-ci.org/imsamurai/CakePHP-Audit-Log-Plugin) [![Coverage Status](https://coveralls.io/repos/imsamurai/CakePHP-Audit-Log-Plugin/badge.png?branch=master)](https://coveralls.io/r/imsamurai/CakePHP-Audit-Log-Plugin?branch=master) [![Latest Stable Version](https://poser.pugx.org/imsamurai/audit-log/v/stable.png)](https://packagist.org/packages/imsamurai/audit-log) [![Total Downloads](https://poser.pugx.org/imsamurai/audit-log/downloads.png)](https://packagist.org/packages/imsamurai/audit-log) [![Latest Unstable Version](https://poser.pugx.org/imsamurai/audit-log/v/unstable.png)](https://packagist.org/packages/imsamurai/audit-log) [![License](https://poser.pugx.org/imsamurai/audit-log/license.png)](https://packagist.org/packages/imsamurai/audit-log)
 
 A logging plugin for [CakePHP](http://cakephp.org). The included `AuditableBehavior`  creates an audit history for each instance of a model to which it's attached.
 
@@ -20,14 +26,21 @@ The behavior tracks changes on two levels. It takes a snapshot of the fully hydr
 
 #### As an Archive  
 
-1. Click the big ol' **Downloads** button next to the project description.
-1. Extract the archive to `app/Plugin/AuditLog`.
+1. Download and extract the source to `app/Plugin/AuditLog`.
 
 #### As a Submodule
 
-1. `$ git submodule add git://github.com/robwilkerson/CakePHP-Audit-Log-Plugin.git <path_to>/app/Plugin/AuditLog`
+1. `$ git submodule add git://github.com/imsamurai/CakePHP-Audit-Log-Plugin.git <path_to>/app/Plugin/AuditLog`
 1. `$ git submodule init`
 1. `$ git submodule update`
+
+#### Via composer
+
+1. add into your composer 
+	"require": {
+		"imsamurai/audit-log": "1.1.*",
+	}
+1. `composer update`
 
 To create tables you can use schema shell. To create tables execute:
 
@@ -37,29 +50,21 @@ To create tables you can use schema shell. To create tables execute:
 
 ### CakePHP 1.3.x
 
-For use with CakePHP 1.3.x, be sure to use code from the `1.3` branch and follow the instructions in that README file.
+For use with CakePHP 1.3.x, be sure to use code from the `1.3` branch and follow the instructions in that README file (NOT MAINTAINED).
 
 ### Next Steps
 
-1. Run the `install.sql` file on your CakePHP application database. This will create the `audits` and `audit_deltas` tables that will store each object's relevant change history.
+1. Run the `install.sql` file on your CakePHP application database or use schema. This will create the `audits` and `audit_deltas` tables that will store each object's relevant change history.
 1. Create a `currentUser()` method, if desired.
 
     The `AuditableBehavior` optionally allows each changeset to be "owned" by a "source" -- typically the user responsible for the change. Since user and authentication models vary widely, the behavior supports a callback method that should return the value to be stored as the source of the change, if any.
 
     The `currentUser()` method must be available to every model that cares to track a source of changes, so I recommend that a copy of CakePHP's `app_model.php` file be created and the method added there. Keep it DRY, right?
 
-	Storing the changeset source can be a little tricky if the core `Auth` component is being used since user data isn't readily available at the model layer where behaviors lie. One option is to forward that data from the controller. One means of doing this is to include the following code in `AppController::beforeFilter()`:
-	
-        if( !empty( $this->data ) && empty( $this->data[$this->Auth->userModel] ) ) {
-          $this->data[$this->Auth->userModel] = $this->currentUser();
-        }
-
     The behavior expects the `currentUser()` method to return an associative array with an `id` key. Continuing from the example above, the following code might appear in the `AppModel`:
 
-        protected function currentUser() {
-          $user = $this->Auth->user();
-          
-          return $user[$this->Auth->userModel]; # Return the complete user array
+        public function currentUser() {
+          return AuthComponent::user();
         }
   
 1. Attach the behavior to any desired model and configure.
