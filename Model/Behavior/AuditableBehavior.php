@@ -169,8 +169,8 @@ class AuditableBehavior extends ModelBehavior {
 					$delta = array(
 						'AuditDelta' => array(
 							'property_name' => $property,
-							'old_value' => $this->_original[$Model->alias][$property],
-							'new_value' => $value
+							'old_value' => is_array($this->_original[$Model->alias][$property]) ? json_encode($this->_original[$Model->alias][$property], JSON_PRETTY_PRINT) : $this->_original[$Model->alias][$property],
+							'new_value' => is_array($value) ? json_encode($value, JSON_PRETTY_PRINT) : $value
 						)
 					);
 					array_push($updates, $delta);
