@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Audit Log Plugin for CakePHP by imsamurai</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Audit Log Plugin for CakePHP</h1>
+        <p>Records changes made to an object during CRUD operations.</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/imsamurai/CakePHP-Audit-Log-Plugin" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/imsamurai/CakePHP-Audit-Log-Plugin/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/imsamurai/CakePHP-Audit-Log-Plugin/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h2>
+<a name="api-documentation" class="anchor" href="#api-documentation"><span class="octicon octicon-link"></span></a>API Documentation</h2>
+
+<p>Check out <a href="http://imsamurai.github.io/CakePHP-Audit-Log-Plugin/docs/master/">Serializable Behavior API Documentation</a></p>
+
+<h2>
+<a name="abstract" class="anchor" href="#abstract"><span class="octicon octicon-link"></span></a>Abstract</h2>
+
+<p><a href="https://travis-ci.org/imsamurai/CakePHP-Audit-Log-Plugin"><img src="https://travis-ci.org/imsamurai/CakePHP-Audit-Log-Plugin.png" alt="Build Status"></a> <a href="https://coveralls.io/r/imsamurai/CakePHP-Audit-Log-Plugin?branch=master"><img src="https://coveralls.io/repos/imsamurai/CakePHP-Audit-Log-Plugin/badge.png?branch=master" alt="Coverage Status"></a> <a href="https://packagist.org/packages/imsamurai/audit-log"><img src="https://poser.pugx.org/imsamurai/audit-log/v/stable.png" alt="Latest Stable Version"></a> <a href="https://packagist.org/packages/imsamurai/audit-log"><img src="https://poser.pugx.org/imsamurai/audit-log/downloads.png" alt="Total Downloads"></a> <a href="https://packagist.org/packages/imsamurai/audit-log"><img src="https://poser.pugx.org/imsamurai/audit-log/v/unstable.png" alt="Latest Unstable Version"></a> <a href="https://packagist.org/packages/imsamurai/audit-log"><img src="https://poser.pugx.org/imsamurai/audit-log/license.png" alt="License"></a></p>
+
+<p>A logging plugin for <a href="http://cakephp.org">CakePHP</a>. The included <code>AuditableBehavior</code>  creates an audit history for each instance of a model to which it's attached.</p>
+
+<p>The behavior tracks changes on two levels. It takes a snapshot of the fully hydrated object <em>after</em> a change is complete and it also records each individual change in the case of an update action.</p>
+
+<h2>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h2>
+
+<ul>
+<li>Support for CakePHP 2.0. Thanks, <a href="https://github.com/jasonsnider" class="user-mention">@jasonsnider</a>.</li>
+<li>Tracks object snapshots as well as individual property changes.</li>
+<li>Allows each revision record to be attached to a source -- usually a user -- of responsibility for the change.</li>
+<li>Allows developers to ignore changes to specified properties. Properties named <code>created</code>, <code>updated</code> and <code>modified</code> are ignored by default, but these values can be overwritten.</li>
+<li>Handles changes to HABTM associations.</li>
+<li>Fully compatible with the <a href="http://bakery.cakephp.org/articles/view/polymorphic-behavior"><code>PolymorphicBehavior</code></a>.</li>
+<li>Does not require or rely on the existence of explicit models revisions (<code>AuditLog</code>) and deltas (<code>AuditLogDeltas</code>).</li>
+</ul>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<h3>
+<a name="cakephp--20" class="anchor" href="#cakephp--20"><span class="octicon octicon-link"></span></a>CakePHP &gt;= 2.0</h3>
+
+<h4>
+<a name="as-an-archive" class="anchor" href="#as-an-archive"><span class="octicon octicon-link"></span></a>As an Archive</h4>
+
+<ol>
+<li>Download and extract the source to <code>app/Plugin/AuditLog</code>.</li>
+</ol>
+
+<h4>
+<a name="as-a-submodule" class="anchor" href="#as-a-submodule"><span class="octicon octicon-link"></span></a>As a Submodule</h4>
+
+<ol>
+<li><code>$ git submodule add git://github.com/imsamurai/CakePHP-Audit-Log-Plugin.git &lt;path_to&gt;/app/Plugin/AuditLog</code></li>
+<li><code>$ git submodule init</code></li>
+<li><code>$ git submodule update</code></li>
+</ol>
+
+<h4>
+<a name="via-composer" class="anchor" href="#via-composer"><span class="octicon octicon-link"></span></a>Via composer</h4>
+
+<ol>
+<li>add into your composer 
+"require": {
+    "imsamurai/audit-log": "1.1.*",
+}</li>
+<li><code>composer update</code></li>
+</ol>
+
+<p>To create tables you can use schema shell. To create tables execute:</p>
+
+<pre><code>cd &lt;path_to&gt;/app/
+chmod +x ./Console/cake
+./Console/cake schema create -p AuditLog
+</code></pre>
+
+<h3>
+<a name="cakephp-13x" class="anchor" href="#cakephp-13x"><span class="octicon octicon-link"></span></a>CakePHP 1.3.x</h3>
+
+<p>For use with CakePHP 1.3.x, be sure to use code from the <code>1.3</code> branch and follow the instructions in that README file (NOT MAINTAINED).</p>
+
+<h3>
+<a name="next-steps" class="anchor" href="#next-steps"><span class="octicon octicon-link"></span></a>Next Steps</h3>
+
+<ol>
+<li>Run the <code>install.sql</code> file on your CakePHP application database or use schema. This will create the <code>audits</code> and <code>audit_deltas</code> tables that will store each object's relevant change history.</li>
+<li>
+<p>Create a <code>currentUser()</code> method, if desired.</p>
+
+<p>The <code>AuditableBehavior</code> optionally allows each changeset to be "owned" by a "source" -- typically the user responsible for the change. Since user and authentication models vary widely, the behavior supports a callback method that should return the value to be stored as the source of the change, if any.</p>
+
+<p>The <code>currentUser()</code> method must be available to every model that cares to track a source of changes, so I recommend that a copy of CakePHP's <code>app_model.php</code> file be created and the method added there. Keep it DRY, right?</p>
+
+<p>The behavior expects the <code>currentUser()</code> method to return an associative array with an <code>id</code> key. Continuing from the example above, the following code might appear in the <code>AppModel</code>:</p>
+
+<pre><code>public function currentUser() {
+  return AuthComponent::user();
+}
+</code></pre>
+</li>
+<li><p>Attach the behavior to any desired model and configure.</p></li>
+</ol>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Applying the <code>AuditableBehavior</code> to a model is essentially the same as applying any other CakePHP behavior. The behavior does offer a few configuration options:</p>
+
+<dl>
+    <dt>`ignore`</dt>
+    <dd>An array of property names to be ignored when records are created in the deltas table.</dd>
+    <dt>`habtm`</dt>
+    <dd>An array of models that have a HABTM relationship with the acting model and whose changes should be monitored with the model. If the HABTM model is auditable in its own right, don't include it here. This option is for related models whose changes are _only_ tracked relative to the acting model.</dd>
+</dl>
+
+<h3>
+<a name="syntax" class="anchor" href="#syntax"><span class="octicon octicon-link"></span></a>Syntax</h3>
+
+<pre><code># Simple syntax accepting default options
+class Task extends AppModel {
+  public $actsAs = array( 'AuditLog.Auditable' );
+
+  # 
+  # Additional model code.
+  #
+}
+
+# Syntax with explicit options
+class Task extends AppModel {
+  public $actsAs = array(
+    'AuditLog.Auditable' =&gt; array(
+      'ignore' =&gt; array( 'active', 'name', 'updated' ),
+      'habtm'  =&gt; array( 'Type', 'Project' )
+    )
+  );
+
+  # 
+  # Additional model code.
+  #
+}
+</code></pre>
+
+<h2>
+<a name="limitations" class="anchor" href="#limitations"><span class="octicon octicon-link"></span></a>Limitations</h2>
+
+<ul>
+<li>The master branch is not backwards compatible with CakePHP &lt;=1.3.x. If you need compatibility with these version please install the code from the <code>1.3</code> branch and follow the instructions in that README. </li>
+</ul>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>This code is licensed under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT license</a>.</p>
+
+<h2>
+<a name="notes" class="anchor" href="#notes"><span class="octicon octicon-link"></span></a>Notes</h2>
+
+<p>Feel free to submit bug reports or suggest improvements in a ticket or fork this project and improve upon it yourself. Contributions welcome.</p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/imsamurai">imsamurai</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-54309823-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
