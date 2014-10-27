@@ -130,7 +130,7 @@ class AuditController extends AuditLogAppController {
 		}
 
 		if (!empty($conditions['model'])) {
-			$conditions['LOWER('.$this->Audit->alias.'.model) LIKE'] = "%" . mb_strtolower($conditions['model']) . "%";
+			$conditions['LOWER(' . $this->Audit->alias . '.model) LIKE'] = "%" . mb_strtolower($conditions['model']) . "%";
 		}
 		unset($conditions['model']);
 
