@@ -42,5 +42,16 @@
 			<?php
 		}
 		?>
-	</tbody>
+			<tr>
+				<td colspan="2">
+					<center>
+						<?php
+						$query = $this->request->data('Audit');
+						unset($query['list'], $query['count']);
+						echo $this->Html->link(__('view more'), array('action' => 'index', '?' => $query));
+						?>
+					</center>
+				</td>
+			</tr>
+</tbody>
 </table>
