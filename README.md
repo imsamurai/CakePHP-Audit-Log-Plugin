@@ -1,6 +1,6 @@
 ## API Documentation
 
-Check out [Serializable Behavior API Documentation](http://imsamurai.github.io/CakePHP-Audit-Log-Plugin/docs/master/)
+Check out [Audit log API Documentation](http://imsamurai.github.io/CakePHP-Audit-Log-Plugin/docs/master/)
 
 ## Abstract
 
