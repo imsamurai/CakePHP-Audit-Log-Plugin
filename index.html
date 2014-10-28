@@ -42,7 +42,7 @@
         <h2>
 <a name="api-documentation" class="anchor" href="#api-documentation"><span class="octicon octicon-link"></span></a>API Documentation</h2>
 
-<p>Check out <a href="http://imsamurai.github.io/CakePHP-Audit-Log-Plugin/docs/master/">Serializable Behavior API Documentation</a></p>
+<p>Check out <a href="http://imsamurai.github.io/CakePHP-Audit-Log-Plugin/docs/master/">Audit log API Documentation</a></p>
 
 <h2>
 <a name="abstract" class="anchor" href="#abstract"><span class="octicon octicon-link"></span></a>Abstract</h2>
@@ -116,6 +116,14 @@ chmod +x ./Console/cake
 
 <ol>
 <li>Run the <code>install.sql</code> file on your CakePHP application database or use schema. This will create the <code>audits</code> and <code>audit_deltas</code> tables that will store each object's relevant change history.</li>
+<li>Add plugin into <code>bootstrap.php1</code>
+</li>
+</ol>
+
+<div class="highlight highlight-php"><pre><span class="nx">CakePlugin</span><span class="o">::</span><span class="na">load</span><span class="p">(</span><span class="s1">'AuditLog'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">'bootstrap'</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">));</span>
+</pre></div>
+
+<ol>
 <li>
 <p>Create a <code>currentUser()</code> method, if desired.</p>
 
