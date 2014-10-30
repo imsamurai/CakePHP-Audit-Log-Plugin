@@ -196,6 +196,29 @@ class Task extends AppModel {
 <a name="notes" class="anchor" href="#notes"><span class="octicon octicon-link"></span></a>Notes</h2>
 
 <p>Feel free to submit bug reports or suggest improvements in a ticket or fork this project and improve upon it yourself. Contributions welcome.</p>
+
+<h2>
+<a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h2>
+
+<h3>
+<a name="111" class="anchor" href="#111"><span class="octicon octicon-link"></span></a>1.1.1</h3>
+
+<ul>
+<li>Add link <code>view all</code> in widget</li>
+</ul>
+
+<h3>
+<a name="110" class="anchor" href="#110"><span class="octicon octicon-link"></span></a>1.1.0</h3>
+
+<ul>
+<li>Add to composer and travis. </li>
+<li>Change source_id to user_id field in db. </li>
+<li>Handle case of saving AuditDelta for array value in field (actual saving for model is provided by <a href="https://github.com/imsamurai/cakephp-serializable-behaviour">https://github.com/imsamurai/cakephp-serializable-behaviour</a>)</li>
+<li>Default view for list of audit records with pagination and filter (for nice style you need bootstrap 2)</li>
+<li>Default view for concrete audit record and it deltas</li>
+<li>Helper that has ajax/requestAction widget for display short list of audit records and format user email with link to user view in your application</li>
+<li>Some additional parameters you can see in plugin bootstrap.php</li>
+</ul>
       </section>
       <footer>
         <p>Project maintained by <a href="https://github.com/imsamurai">imsamurai</a></p>
