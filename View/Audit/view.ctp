@@ -53,7 +53,7 @@ if ($data['Audit']['event'] === 'EDIT') {
 		}
 		?>
 	</table>
-	<?
+	<?php
 }
 ?>
 <h2><?= __('Audit object'); ?></h2>
