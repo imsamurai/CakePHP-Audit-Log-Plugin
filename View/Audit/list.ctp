@@ -20,7 +20,6 @@
 		<?php
 		foreach ($data as $one) {
 			$audit = $one['Audit'];
-			$user = $one['User'];
 			?>
 			<tr>
 				<td>

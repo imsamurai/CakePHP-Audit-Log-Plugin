@@ -28,7 +28,7 @@ class AuditLogAppModel extends AppModel {
 	 *
 	 * @var arrayt
 	 */
-	public $actAs = array('Containable');
+	public $actsAs = array('Containable');
 
 	/**
 	 * {@inheritdoc}
