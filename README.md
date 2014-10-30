@@ -120,3 +120,17 @@ This code is licensed under the [MIT license](http://www.opensource.org/licenses
 ## Notes
 
 Feel free to submit bug reports or suggest improvements in a ticket or fork this project and improve upon it yourself. Contributions welcome.
+
+## Changelog
+
+### 1.1.1
+- Add link `view all` in widget
+
+### 1.1.0
+- Add to composer and travis. 
+- Change source_id to user_id field in db. 
+- Handle case of saving AuditDelta for array value in field (actual saving for model is provided by https://github.com/imsamurai/cakephp-serializable-behaviour)
+- Default view for list of audit records with pagination and filter (for nice style you need bootstrap 2)
+- Default view for concrete audit record and it deltas
+- Helper that has ajax/requestAction widget for display short list of audit records and format user email with link to user view in your application
+- Some additional parameters you can see in plugin bootstrap.php
