@@ -116,14 +116,12 @@ chmod +x ./Console/cake
 
 <ol>
 <li>Run the <code>install.sql</code> file on your CakePHP application database or use schema. This will create the <code>audits</code> and <code>audit_deltas</code> tables that will store each object's relevant change history.</li>
-<li>Add plugin into <code>bootstrap.php1</code>
-</li>
-</ol>
+<li>
+<p>Add plugin into <code>bootstrap.php</code></p>
 
 <div class="highlight highlight-php"><pre><span class="nx">CakePlugin</span><span class="o">::</span><span class="na">load</span><span class="p">(</span><span class="s1">'AuditLog'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">'bootstrap'</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">));</span>
 </pre></div>
-
-<ol>
+</li>
 <li>
 <p>Create a <code>currentUser()</code> method, if desired.</p>
 
@@ -133,12 +131,12 @@ chmod +x ./Console/cake
 
 <p>The behavior expects the <code>currentUser()</code> method to return an associative array with an <code>id</code> key. Continuing from the example above, the following code might appear in the <code>AppModel</code>:</p>
 
-<pre><code>public function currentUser() {
-  return AuthComponent::user();
-}
-</code></pre>
+<div class="highlight highlight-php"><pre><span class="k">public</span> <span class="k">function</span> <span class="nf">currentUser</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">AuthComponent</span><span class="o">::</span><span class="na">user</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
 </li>
-<li><p>Attach the behavior to any desired model and configure.</p></li>
+<li>Attach the behavior to any desired model and configure.</li>
 </ol>
 
 <h2>
@@ -169,29 +167,29 @@ chmod +x ./Console/cake
 <h3>
 <a name="syntax" class="anchor" href="#syntax"><span class="octicon octicon-link"></span></a>Syntax</h3>
 
-<pre><code># Simple syntax accepting default options
-class Task extends AppModel {
-  public $actsAs = array( 'AuditLog.Auditable' );
+<div class="highlight highlight-php"><pre><span class="c1"># Simple syntax accepting default options</span>
+<span class="k">class</span> <span class="nc">Task</span> <span class="k">extends</span> <span class="nx">AppModel</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$actsAs</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">'AuditLog.Auditable'</span> <span class="p">);</span>
 
-  # 
-  # Additional model code.
-  #
-}
+    <span class="c1"># </span>
+    <span class="c1"># Additional model code.</span>
+    <span class="c1">#</span>
+<span class="p">}</span>
 
-# Syntax with explicit options
-class Task extends AppModel {
-  public $actsAs = array(
-    'AuditLog.Auditable' =&gt; array(
-      'ignore' =&gt; array( 'active', 'name', 'updated' ),
-      'habtm'  =&gt; array( 'Type', 'Project' )
-    )
-  );
+<span class="c1"># Syntax with explicit options</span>
+<span class="k">class</span> <span class="nc">Task</span> <span class="k">extends</span> <span class="nx">AppModel</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$actsAs</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'AuditLog.Auditable'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">'ignore'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span> <span class="s1">'active'</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">,</span> <span class="s1">'updated'</span> <span class="p">),</span>
+            <span class="s1">'habtm'</span>  <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span> <span class="s1">'Type'</span><span class="p">,</span> <span class="s1">'Project'</span> <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">);</span>
 
-  # 
-  # Additional model code.
-  #
-}
-</code></pre>
+    <span class="c1"># </span>
+    <span class="c1"># Additional model code.</span>
+    <span class="c1">#</span>
+<span class="p">}</span>
+</pre></div>
 
 <h2>
 <a name="limitations" class="anchor" href="#limitations"><span class="octicon octicon-link"></span></a>Limitations</h2>
