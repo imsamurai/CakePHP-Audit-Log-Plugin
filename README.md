@@ -55,10 +55,12 @@ For use with CakePHP 1.3.x, be sure to use code from the `1.3` branch and follow
 ### Next Steps
 
 1. Run the `install.sql` file on your CakePHP application database or use schema. This will create the `audits` and `audit_deltas` tables that will store each object's relevant change history.
-1. Add plugin into `bootstrap.php1`
-```php
-CakePlugin::load('AuditLog', array('bootstrap' => true));
-```
+1. Add plugin into `bootstrap.php`
+
+	```php
+	CakePlugin::load('AuditLog', array('bootstrap' => true));
+	```
+
 1. Create a `currentUser()` method, if desired.
 
     The `AuditableBehavior` optionally allows each changeset to be "owned" by a "source" -- typically the user responsible for the change. Since user and authentication models vary widely, the behavior supports a callback method that should return the value to be stored as the source of the change, if any.
@@ -66,11 +68,11 @@ CakePlugin::load('AuditLog', array('bootstrap' => true));
     The `currentUser()` method must be available to every model that cares to track a source of changes, so I recommend that a copy of CakePHP's `app_model.php` file be created and the method added there. Keep it DRY, right?
 
     The behavior expects the `currentUser()` method to return an associative array with an `id` key. Continuing from the example above, the following code might appear in the `AppModel`:
-
-        public function currentUser() {
-          return AuthComponent::user();
-        }
-  
+	```php
+	public function currentUser() {
+	  return AuthComponent::user();
+	}
+	```
 1. Attach the behavior to any desired model and configure.
 
 ## Usage
@@ -93,28 +95,30 @@ Applying the `AuditableBehavior` to a model is essentially the same as applying 
 
 ### Syntax
 
-    # Simple syntax accepting default options
-    class Task extends AppModel {
-      public $actsAs = array( 'AuditLog.Auditable' );
-          
-      # 
-      # Additional model code.
-      #
-    }
-    
-    # Syntax with explicit options
-    class Task extends AppModel {
-      public $actsAs = array(
-        'AuditLog.Auditable' => array(
-          'ignore' => array( 'active', 'name', 'updated' ),
-          'habtm'  => array( 'Type', 'Project' )
-        )
-      );
-      
-      # 
-      # Additional model code.
-      #
-    }
+```php
+# Simple syntax accepting default options
+class Task extends AppModel {
+	public $actsAs = array( 'AuditLog.Auditable' );
+	  
+	# 
+	# Additional model code.
+	#
+}
+
+# Syntax with explicit options
+class Task extends AppModel {
+	public $actsAs = array(
+		'AuditLog.Auditable' => array(
+			'ignore' => array( 'active', 'name', 'updated' ),
+			'habtm'  => array( 'Type', 'Project' )
+		)
+	);
+	
+	# 
+	# Additional model code.
+	#
+}
+```
 
 ## Limitations
 
