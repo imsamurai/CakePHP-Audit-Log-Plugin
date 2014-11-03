@@ -75,6 +75,8 @@ CakePlugin::load('AuditLog', array('bootstrap' => true));
 
 ## Usage
 
+### AuditableBehavior
+
 Applying the `AuditableBehavior` to a model is essentially the same as applying any other CakePHP behavior. The behavior does offer a few configuration options:
 
 <dl>
@@ -83,6 +85,11 @@ Applying the `AuditableBehavior` to a model is essentially the same as applying 
 	<dt>`habtm`</dt>
 	<dd>An array of models that have a HABTM relationship with the acting model and whose changes should be monitored with the model. If the HABTM model is auditable in its own right, don't include it here. This option is for related models whose changes are _only_ tracked relative to the acting model.</dd>
 </dl>
+
+### AuditHelper
+
+- `user(user)` render user name with link to user profile (see config `AuditLog.User`)
+- `listBlock(conditions, ajax)` render widget with compact table of audit logs depends on `conditions` and `ajax`. Second parameter means that widget will be loaded by ajax or request action (default is ajax). This method simply invoke action `AuditController::index` with `list=1` and `conditions` (also `count=<count>` if it set).
 
 ### Syntax
 
