@@ -144,6 +144,9 @@ chmod +x ./Console/cake
 <h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
+<h3>
+<a name="auditablebehavior" class="anchor" href="#auditablebehavior"><span class="octicon octicon-link"></span></a>AuditableBehavior</h3>
+
 <p>Applying the <code>AuditableBehavior</code> to a model is essentially the same as applying any other CakePHP behavior. The behavior does offer a few configuration options:</p>
 
 <dl>
@@ -152,6 +155,16 @@ chmod +x ./Console/cake
     <dt>`habtm`</dt>
     <dd>An array of models that have a HABTM relationship with the acting model and whose changes should be monitored with the model. If the HABTM model is auditable in its own right, don't include it here. This option is for related models whose changes are _only_ tracked relative to the acting model.</dd>
 </dl>
+
+<h3>
+<a name="audithelper" class="anchor" href="#audithelper"><span class="octicon octicon-link"></span></a>AuditHelper</h3>
+
+<ul>
+<li>
+<code>user(user)</code> render user name with link to user profile (see config <code>AuditLog.User</code>)</li>
+<li>
+<code>listBlock(conditions, ajax)</code> render widget with compact table of audit logs depends on <code>conditions</code> and <code>ajax</code>. Second parameter means that widget will be loaded by ajax or request action (default is ajax). This method simply invoke action <code>AuditController::index</code> with <code>list=1</code> and <code>conditions</code> (also <code>count=&lt;count&gt;</code> if it set).</li>
+</ul>
 
 <h3>
 <a name="syntax" class="anchor" href="#syntax"><span class="octicon octicon-link"></span></a>Syntax</h3>
