@@ -227,6 +227,72 @@ class AuditControllerTest extends ControllerTestCase {
 					)
 				)
 			),
+			//set #4
+			array(
+				//query
+				array(
+					'created' => '2014-01-01 12:00:01',
+				),
+				//paginate
+				array(
+					'Audit' => array(
+						'limit' => 10,
+						'fields' => array(
+							'id',
+							'event',
+							'model',
+							'created',
+							'user_id',
+							'entity_id'
+						),
+						'contain' => array(
+							'User' => array(
+								'fields' => array(
+									'id',
+									'email'
+								)
+							)
+						),
+						'conditions' => array(
+							'Audit.created' => '2014-01-01 12:00:01'
+						),
+						'order' => array('created' => 'desc')
+					)
+				)
+			),
+			//set #5
+			array(
+				//query
+				array(
+					'created' => '2014-01-01',
+				),
+				//paginate
+				array(
+					'Audit' => array(
+						'limit' => 10,
+						'fields' => array(
+							'id',
+							'event',
+							'model',
+							'created',
+							'user_id',
+							'entity_id'
+						),
+						'contain' => array(
+							'User' => array(
+								'fields' => array(
+									'id',
+									'email'
+								)
+							)
+						),
+						'conditions' => array(
+							'Audit.created BETWEEN ? AND ?' => array('2014-01-01 00:00:00', '2014-01-01 23:59:59')
+						),
+						'order' => array('created' => 'desc')
+					)
+				)
+			),
 		);
 	}
 
