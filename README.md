@@ -93,6 +93,18 @@ Applying the `AuditableBehavior` to a model is essentially the same as applying 
 - `user(user)` render user name with link to user profile (see config `AuditLog.User`)
 - `listBlock(conditions, ajax)` render widget with compact table of audit logs depends on `conditions` and `ajax`. Second parameter means that widget will be loaded by ajax or request action (default is ajax). This method simply invoke action `AuditController::index` with `list=1` and `conditions` (also `count=<count>` if it set).
 
+### AuditController
+
+For filter by date you can use all formats (single or range) that constructor of `DateTime` can understand. For example:
+
+- `2014/11/05 TO 2014/11/06` - will be range from 05.11.2014 00:00:00 to 06.11.2014 00:00:00
+- `2014/11/05 01:02:20 TO 2014/11/06 15:02:21` - from 05.11.2014 01:02:20 to 06.11.2014 15:02:21
+- `05.11.2014 01:02:20 to 06.11.2014 15:02:21` - from 05.11.2014 01:02:20 to 06.11.2014 15:02:21
+- `2014/11/05` - from 05.11.2014 00:00:00 to 05.11.2014 23:59:59
+- `2014/11/05 03:40:21` - date must be equals to 05.11.2014 03:40:21
+
+Hint: you can use [bootstrap daterange picker](https://github.com/dangrossman/bootstrap-daterangepicker) for this field.
+
 ### Syntax
 
 ```php
