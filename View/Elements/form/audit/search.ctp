@@ -29,7 +29,8 @@ echo $this->Form->create('Audit', array(
 			'options' => array(
 				'CREATE' => 'CREATE',
 				'DELETE' => 'DELETE',
-				'EDIT' => 'EDIT'
+				'EDIT' => 'EDIT',
+				'FIND' => 'FIND'
 			),
 			'type' => 'select',
 			'multiple' => true

@@ -19,7 +19,7 @@ class AuditableBehavior extends ModelBehavior {
 	 * @var array
 	 */
 	protected $_original = array();
-
+	
 	/**
 	 * Initiate behavior for the model using specified settings.
 	 *
@@ -62,6 +62,51 @@ class AuditableBehavior extends ModelBehavior {
 			}
 		}
 	}
+	
+	/**
+	 * {@inheritdoc}
+	 * 
+	 * @param Model $Model
+	 * @param mixed $results
+	 * @param boolean $primary
+	 */
+	public function afterFind(Model $Model, $results, $primary = false) {
+		if (!$this->_auditHasToSave('find', $Model) || !$this->_calledFunctionNeedAudit($Model)) {
+			return parent::afterFind($Model, $results, $primary);
+		}
+		
+		/*
+		 * If a currentUser() method exists in the model class (or, of
+		 * course, in a superclass) the call that method to pull all user
+		 * data. Assume than an id field exists.
+		 */
+		$source = array();
+		if ($Model->hasMethod('currentUser')) {
+			$source = $Model->currentUser();
+		} elseif ($Model->hasMethod('current_user')) {
+			$source = $Model->current_user();
+		}
+
+		$audit = array(
+			'Request' => empty($Model->searchParams) ? array() : array('searchParams' => $Model->searchParams),
+			'Answer' => $results);
+		$data = array(
+			'Audit' => array(
+				'event' => 'FIND',
+				'model' => $Model->alias,
+				'entity_id' => $Model->id,
+				'json_object' => json_encode($audit, JSON_PRETTY_PRINT),
+				'user_id' => isset($source['id']) ? $source['id'] : null,
+				'description' => isset($source['description']) ? $source['description'] : null,
+			)
+		);
+
+		$this->Audit = ClassRegistry::init('Audit');
+		$this->Audit->create();
+		$this->Audit->save($data);
+		
+		return parent::afterFind($Model, $results, $primary);
+	}
 
 	/**
 	 * {@inheritdoc}
@@ -71,6 +116,10 @@ class AuditableBehavior extends ModelBehavior {
 	 * @return  boolean
 	 */
 	public function beforeSave(Model $Model, $options = array()) {
+		if (!$this->_auditHasToSave('save', $Model) || !$this->_calledFunctionNeedAudit($Model)) {
+			return true;
+		}
+		
 		# If we're editing an existing object, save off a copy of
 		# the object as it exists before any changes.
 		if (!empty($Model->id)) {
@@ -88,6 +137,10 @@ class AuditableBehavior extends ModelBehavior {
 	 * @return	boolean
 	 */
 	public function beforeDelete(Model $Model, $cascade = true) {
+		if (!$this->_auditHasToSave('delete', $Model) || !$this->_calledFunctionNeedAudit($Model)) {
+			return true;
+		}
+		
 		$original = $Model->find(
 				'first', array(
 			'contain' => false,
@@ -108,6 +161,10 @@ class AuditableBehavior extends ModelBehavior {
 	 * @return bool
 	 */
 	public function afterSave(Model $Model, $created, $options = array()) {
+		if (!$this->_auditHasToSave('save', $Model) || !$this->_calledFunctionNeedAudit($Model)) {
+			return true;
+		}
+		
 		$audit = array($Model->alias => $this->_getModelData($Model));
 		$audit[$Model->alias][$Model->primaryKey] = $Model->id;
 
@@ -234,6 +291,10 @@ class AuditableBehavior extends ModelBehavior {
 	 * @param Model $Model
 	 */
 	public function afterDelete(Model $Model) {
+		if (!$this->_auditHasToSave('delete', $Model) || !$this->_calledFunctionNeedAudit($Model)) {
+			return;
+		}
+		
 		/*
 		 * If a currentUser() method exists in the model class (or, of
 		 * course, in a superclass) the call that method to pull all user
@@ -314,4 +375,41 @@ class AuditableBehavior extends ModelBehavior {
 		return $auditData[$Model->alias];
 	}
 
+	/**
+	 * Method checks if model need to save activity
+	 * 
+	 * @param string $permissionName
+	 * @param Model $Model
+	 * @return boolean
+	 */
+	protected function _auditHasToSave($permissionName, Model $Model) {
+		$calledFunctionName = empty($Model->calledFunctionName) ? 'all' : $Model->calledFunctionName;
+		
+		return in_array(
+			$permissionName, 
+			(array) Configure::read("AuditLog.models.$Model->alias.methods.$calledFunctionName.activity"));
+	}
+	
+	/**
+	 * 
+	 * @param Model $Model
+	 * @return boolean
+	 */
+	protected function _calledFunctionNeedAudit(Model $Model) {
+		if (key(Configure::read("AuditLog.models.$Model->alias.methods")) == 'all') {
+			
+			// Save all methods activity
+			return true;
+		}
+		
+		if (isset($Model->calledFunctionName)
+		&& in_array(
+			$Model->calledFunctionName, 
+			array_keys(Configure::read("AuditLog.models.$Model->alias.methods")))) {
+			
+			// Save activity only for methods specified in configure
+			return true;
+		}
+		return false;
+	}
 }
