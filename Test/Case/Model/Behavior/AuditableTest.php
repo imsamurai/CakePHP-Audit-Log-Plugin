@@ -141,6 +141,20 @@ class AuditableBehaviorTest extends CakeTestCase {
 	public function setUp() {
 		parent::setUp();
 		$this->Article = ClassRegistry::init('Article');
+		
+		$config = (array)Configure::read('AuditLog');
+		$config = Hash::mergeDiff($config, array(
+					'models' => array(
+						'Article' => array(
+							'methods' => array(
+								'all' => array(
+									'activity' => array('find','save','delete')))),
+						'Author' => array(
+							'methods' => array(
+								'all' => array(
+									'activity' => array('save','delete'))))
+		)));
+		Configure::write('AuditLog', $config);
 	}
 
 	/**
@@ -152,6 +166,45 @@ class AuditableBehaviorTest extends CakeTestCase {
 		parent::tearDown();
 		unset($this->Article);
 		ClassRegistry::flush();
+	}
+
+	/**
+	 * Test the find action.
+	 */
+	public function testFind() {
+		$newArticle = array(
+			'Article' => array(
+				'user_id' => 1,
+				'author_id' => 1,
+				'title' => 'First Test Article',
+				'body' => 'First Test Article Body',
+				'published' => 'N',
+			),
+		);
+		$this->Article->save($newArticle);
+		
+		$params = array(
+			'fields' => array('Article.title', 'Article.body'),
+			'conditions' => array('Article.id' => 4)
+		);
+		$this->Article->searchParams = $params;
+		$article = $this->Article->find('first', $params);
+
+		$audit = ClassRegistry::init('Audit')->find(
+				'first', array(
+			'recursive' => -1,
+			'conditions' => array(
+				'Audit.event' => 'FIND',
+				'Audit.model' => 'Article',
+				'Audit.entity_id' => $this->Article->getLastInsertId()
+			)
+				)
+		);
+		$json_object = json_decode($audit['Audit']['json_object'], true);
+
+		# Verify that real request and answer data the same with saved data
+		$this->assertEqual($params, Hash::extract($json_object, 'Request.searchParams'));
+		$this->assertEqual($article, Hash::extract($json_object, 'Answer.0'));
 	}
 
 	/**
@@ -179,6 +232,7 @@ class AuditableBehaviorTest extends CakeTestCase {
 			)
 				)
 		);
+
 		$article = json_decode($audit['Audit']['json_object'], true);
 
 		$deltas = ClassRegistry::init('AuditDelta')->find(
@@ -352,6 +406,7 @@ class AuditableBehaviorTest extends CakeTestCase {
 				'all', array(
 			'recursive' => 0,
 			'conditions' => array(
+				'Audit.event NOT' => 'Find',
 				'Audit.model' => 'Article',
 				'Audit.entity_id' => $this->Article->getLastInsertId()
 			)
