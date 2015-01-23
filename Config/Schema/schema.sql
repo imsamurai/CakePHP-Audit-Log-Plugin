@@ -13,7 +13,7 @@ CREATE TABLE `audits` (
   `event` varchar(255) NOT NULL,
   `model` varchar(255) NOT NULL,
   `entity_id` varchar(36) NOT NULL,
-  `json_object` text NOT NULL,
+  `json_object` longtext NOT NULL,
   `description` text,
   `user_id` bigint(20) unsigned DEFAULT '0',
   `created` datetime NOT NULL,

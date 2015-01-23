@@ -7,6 +7,7 @@
  * Format: http://book.cakephp.org/2.0/en/controllers.html
  */
 App::uses('AuditLogAppController', 'AuditLog.Controller');
+App::uses('File', 'Utility');
 
 /**
  * AuditController
@@ -86,6 +87,17 @@ class AuditController extends AuditLogAppController {
 	 * @throws NotFoundException
 	 */
 	public function view($id) {
+		$this->set('data', $this->_getAuditData($id));
+	}
+
+	/**
+	 * Returns audit data
+	 * 
+	 * @param int $id
+	 * @return array
+	 * @throws NotFoundException
+	 */
+	protected function _getAuditData($id) {
 		$data = $this->Audit->find('first', array(
 			'contain' => array(
 				'Delta',
@@ -103,9 +115,10 @@ class AuditController extends AuditLogAppController {
 		if (!$data) {
 			throw new NotFoundException(__("Audit #%s does not exists!", $id));
 		}
-		$this->set('data', $data);
+		
+		return $data;
 	}
-
+	
 	/**
 	 * Builds pagination conditions from search form
 	 * 
@@ -124,13 +137,6 @@ class AuditController extends AuditLogAppController {
 				$conditions[$this->Audit->alias . '.' . $dateRangeField . ' BETWEEN ? AND ?'] = array(
 					(new DateTime($range['start']))->format('Y-m-d H:i:s'),
 					(new DateTime($range['end']))->format('Y-m-d H:i:s')
-				);
-			} elseif (strpos($conditions[$dateRangeField], ' ') !== false) {
-				$conditions[$this->Audit->alias . '.' . $dateRangeField] = (new DateTime($conditions[$dateRangeField]))->format('Y-m-d H:i:s');
-			} else {
-				$conditions[$this->Audit->alias . '.' . $dateRangeField . ' BETWEEN ? AND ?'] = array(
-					(new DateTime($conditions[$dateRangeField]))->format('Y-m-d 00:00:00'),
-					(new DateTime($conditions[$dateRangeField]))->format('Y-m-d 23:59:59')
 				);
 			}
 			unset($conditions[$dateRangeField]);

@@ -32,6 +32,10 @@ echo $this->Form->create('Task', array('type' => 'get', 'class' => 'batch-form',
 		<?php
 		foreach ($data as $one) {
 			$audit = $one['Audit'];
+			
+			$name = empty($audit['model']) ? '' : strtolower($audit['model']);
+			$name .= empty($name) ? '' : '_';
+			$name .= empty($audit['event']) ? '' : strtolower($audit['event']);
 			?>
 			<tr>
 				<td><?= $this->Html->link($audit['id'], array('action' => 'view', $audit['id'])); ?></td>
@@ -43,7 +47,17 @@ echo $this->Form->create('Task', array('type' => 'get', 'class' => 'batch-form',
 				<td>
 					<div class="btn-group"><button class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-tasks"></i><span class="caret"></span></button>
 						<ul class="dropdown-menu pull-right">
-							<?= $this->Html->tag('li', $this->Html->link('View', array('action' => 'view', $audit['id']))); ?>
+							<?php
+							echo $this->Html->tag('li', $this->Html->link('View', array('action' => 'view', $audit['id'])));
+							if ($this->elementExists('..' . DS . 'Audit' . DS . $name)) :
+								echo $this->Html->tag('li', $this->Html->link('Details', array(
+									'controller' => 'audit',
+									'action' => 'details', 
+									$audit['id'], 
+									$name, 
+									'plugin' => false))); 
+							endif; 
+							?>
 						</ul>
 					</div>
 

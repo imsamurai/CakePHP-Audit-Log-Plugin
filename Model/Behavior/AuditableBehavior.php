@@ -74,6 +74,9 @@ class AuditableBehavior extends ModelBehavior {
 		if (!$this->_auditHasToSave('find', $Model) || !$this->_calledFunctionNeedAudit($Model)) {
 			return parent::afterFind($Model, $results, $primary);
 		}
+		if (empty($Model->searchParams)) {
+			return parent::afterFind($Model, $results, $primary);
+		}
 		
 		/*
 		 * If a currentUser() method exists in the model class (or, of
@@ -88,7 +91,7 @@ class AuditableBehavior extends ModelBehavior {
 		}
 
 		$audit = array(
-			'Request' => empty($Model->searchParams) ? array() : array('searchParams' => $Model->searchParams),
+			'Request' => array('searchParams' => $Model->searchParams),
 			'Answer' => $results);
 		$data = array(
 			'Audit' => array(
@@ -397,7 +400,6 @@ class AuditableBehavior extends ModelBehavior {
 	 */
 	protected function _calledFunctionNeedAudit(Model $Model) {
 		if (key(Configure::read("AuditLog.models.$Model->alias.methods")) == 'all') {
-			
 			// Save all methods activity
 			return true;
 		}
