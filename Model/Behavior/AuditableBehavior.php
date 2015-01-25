@@ -390,7 +390,7 @@ class AuditableBehavior extends ModelBehavior {
 		
 		return in_array(
 			$permissionName, 
-			(array) Configure::read("AuditLog.models.$Model->alias.methods.$calledFunctionName.activity"));
+			(array)Configure::read("AuditLog.models.$Model->alias.methods.$calledFunctionName.activity"));
 	}
 	
 	/**

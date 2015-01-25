@@ -154,11 +154,11 @@ class AuditableBehaviorTest extends CakeTestCase {
 						'Article' => array(
 							'methods' => array(
 								'all' => array(
-									'activity' => array('find','save','delete')))),
+									'activity' => array('find', 'save', 'delete')))),
 						'Author' => array(
 							'methods' => array(
 								'all' => array(
-									'activity' => array('save','delete'))))
+									'activity' => array('save', 'delete'))))
 		)));
 		Configure::write('AuditLog', $config);
 	}
@@ -570,10 +570,10 @@ class AuditableBehaviorTest extends CakeTestCase {
 				)
 		);
 
-		$json_object = json_decode($audit['Audit']['json_object'], true);
+		$jsonObject = json_decode($audit['Audit']['json_object'], true);
 
 		# Verify that real request and answer data the same with saved data
-		$this->assertEqual($params, Hash::extract($json_object, 'Request.searchParams'));
-		$this->assertEqual($article, Hash::extract($json_object, 'Answer.0'));
+		$this->assertEqual($params, Hash::extract($jsonObject, 'Request.searchParams'));
+		$this->assertEqual($article, Hash::extract($jsonObject, 'Answer.0'));
 	}
 }
