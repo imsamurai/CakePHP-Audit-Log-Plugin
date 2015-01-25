@@ -138,6 +138,13 @@ class AuditController extends AuditLogAppController {
 					(new DateTime($range['start']))->format('Y-m-d H:i:s'),
 					(new DateTime($range['end']))->format('Y-m-d H:i:s')
 				);
+			} elseif (strpos($conditions[$dateRangeField], ' ') !== false) {
+				$conditions[$this->Audit->alias . '.' . $dateRangeField] = (new DateTime($conditions[$dateRangeField]))->format('Y-m-d H:i:s');
+			} else {
+				$conditions[$this->Audit->alias . '.' . $dateRangeField . ' BETWEEN ? AND ?'] = array(
+					(new DateTime($conditions[$dateRangeField]))->format('Y-m-d 00:00:00'),
+					(new DateTime($conditions[$dateRangeField]))->format('Y-m-d 23:59:59')
+				);
 			}
 			unset($conditions[$dateRangeField]);
 		}
