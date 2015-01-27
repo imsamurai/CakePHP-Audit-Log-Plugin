@@ -20,108 +20,93 @@
 <path fill="none" stroke="gray" d="M316,-472C316,-466 322,-460 328,-460"/>
 <text text-anchor="middle" x="562" y="-1384.1" font-family="Times Roman,serif" font-size="11.00" fill="gray">Global</text>
 </g>
-<!-- \\AuditHelper -->
-<g id="node2" class="node"><title>\\AuditHelper</title>
-<polygon fill="none" stroke="black" points="766,-1206 676,-1206 676,-1170 766,-1170 766,-1206"/>
-<text text-anchor="middle" x="721" y="-1185.1" font-family="Courier,monospace" font-size="11.00">AuditHelper</text>
+<!-- \\AuditLogSchema -->
+<g id="node2" class="node"><title>\\AuditLogSchema</title>
+<polygon fill="none" stroke="black" points="776,-1206 666,-1206 666,-1170 776,-1170 776,-1206"/>
+<text text-anchor="middle" x="721" y="-1185.1" font-family="Courier,monospace" font-size="11.00">AuditLogSchema</text>
 </g>
-<!-- \\AppHelper -->
-<g id="node22" class="node"><title>\\AppHelper</title>
-<ellipse fill="none" stroke="black" cx="403" cy="-434" rx="65.0538" ry="18.3848"/>
-<text text-anchor="middle" x="403" y="-430.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\AppHelper</text>
+<!-- \\CakeSchema -->
+<g id="node22" class="node"><title>\\CakeSchema</title>
+<ellipse fill="none" stroke="black" cx="403" cy="-434" rx="77.0746" ry="18.3848"/>
+<text text-anchor="middle" x="403" y="-430.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\CakeSchema</text>
 </g>
-<!-- \\AuditHelper&#45;&gt;\\AppHelper -->
-<g id="edge3" class="edge"><title>\\AuditHelper&#45;&gt;\\AppHelper</title>
-<path fill="none" stroke="black" d="M675.491,-1181.81C662.834,-1177.86 650.298,-1171.44 642,-1161 544.006,-1037.72 679.718,-568.971 570,-456 544.688,-429.938 504.613,-423.99 470.065,-424.772"/>
-<polygon fill="none" stroke="black" points="469.862,-421.277 460.015,-425.187 470.151,-428.271 469.862,-421.277"/>
+<!-- \\AuditLogSchema&#45;&gt;\\CakeSchema -->
+<g id="edge3" class="edge"><title>\\AuditLogSchema&#45;&gt;\\CakeSchema</title>
+<path fill="none" stroke="black" d="M665.282,-1178.01C656.334,-1174.07 648.043,-1168.6 642,-1161 544.006,-1037.72 679.718,-568.971 570,-456 547.019,-432.338 511.87,-425.256 479.736,-424.738"/>
+<polygon fill="none" stroke="black" points="479.411,-421.239 469.428,-424.787 479.445,-428.239 479.411,-421.239"/>
 </g>
-<!-- \\AuthorFixture -->
-<g id="node3" class="node"><title>\\AuthorFixture</title>
-<polygon fill="none" stroke="black" points="773,-1098 669,-1098 669,-1062 773,-1062 773,-1098"/>
-<text text-anchor="middle" x="721" y="-1077.1" font-family="Courier,monospace" font-size="11.00">AuthorFixture</text>
+<!-- \\ArticleFixture -->
+<g id="node3" class="node"><title>\\ArticleFixture</title>
+<polygon fill="none" stroke="black" points="776,-1098 666,-1098 666,-1062 776,-1062 776,-1098"/>
+<text text-anchor="middle" x="721" y="-1077.1" font-family="Courier,monospace" font-size="11.00">ArticleFixture</text>
 </g>
 <!-- \\CakeTestFixture -->
 <g id="node24" class="node"><title>\\CakeTestFixture</title>
 <ellipse fill="none" stroke="black" cx="403" cy="-380" rx="92.1303" ry="18.3848"/>
 <text text-anchor="middle" x="403" y="-376.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\CakeTestFixture</text>
 </g>
-<!-- \\AuthorFixture&#45;&gt;\\CakeTestFixture -->
-<g id="edge5" class="edge"><title>\\AuthorFixture&#45;&gt;\\CakeTestFixture</title>
-<path fill="none" stroke="black" d="M668.979,-1071.47C658.658,-1067.46 648.894,-1061.59 642,-1053 461.196,-827.685 769.179,-616.247 570,-407 552.034,-388.126 526.463,-379.092 500.715,-375.343"/>
+<!-- \\ArticleFixture&#45;&gt;\\CakeTestFixture -->
+<g id="edge5" class="edge"><title>\\ArticleFixture&#45;&gt;\\CakeTestFixture</title>
+<path fill="none" stroke="black" d="M665.34,-1069.97C656.385,-1066.03 648.078,-1060.57 642,-1053 461.196,-827.685 769.179,-616.247 570,-407 552.034,-388.126 526.463,-379.092 500.715,-375.343"/>
 <polygon fill="none" stroke="black" points="500.814,-371.83 490.469,-374.119 499.984,-378.781 500.814,-371.83"/>
 </g>
-<!-- \\AuditFixture -->
-<g id="node4" class="node"><title>\\AuditFixture</title>
-<polygon fill="none" stroke="black" points="770,-1044 672,-1044 672,-1008 770,-1008 770,-1044"/>
-<text text-anchor="middle" x="721" y="-1023.1" font-family="Courier,monospace" font-size="11.00">AuditFixture</text>
-</g>
-<!-- \\AuditFixture&#45;&gt;\\CakeTestFixture -->
-<g id="edge7" class="edge"><title>\\AuditFixture&#45;&gt;\\CakeTestFixture</title>
-<path fill="none" stroke="black" d="M671.908,-1018.48C660.544,-1014.47 649.576,-1008.34 642,-999 475.081,-793.113 753.703,-598.061 570,-407 552.03,-388.31 526.594,-379.299 500.978,-375.515"/>
-<polygon fill="none" stroke="black" points="501.135,-372.009 490.785,-374.274 500.288,-378.957 501.135,-372.009"/>
-</g>
 <!-- \\AuditDeltaFixture -->
-<g id="node5" class="node"><title>\\AuditDeltaFixture</title>
-<polygon fill="none" stroke="black" points="786,-990 656,-990 656,-954 786,-954 786,-990"/>
-<text text-anchor="middle" x="721" y="-969.1" font-family="Courier,monospace" font-size="11.00">AuditDeltaFixture</text>
+<g id="node4" class="node"><title>\\AuditDeltaFixture</title>
+<polygon fill="none" stroke="black" points="786,-1044 656,-1044 656,-1008 786,-1008 786,-1044"/>
+<text text-anchor="middle" x="721" y="-1023.1" font-family="Courier,monospace" font-size="11.00">AuditDeltaFixture</text>
 </g>
 <!-- \\AuditDeltaFixture&#45;&gt;\\CakeTestFixture -->
-<g id="edge9" class="edge"><title>\\AuditDeltaFixture&#45;&gt;\\CakeTestFixture</title>
-<path fill="none" stroke="black" d="M655.408,-956.576C650.359,-953.408 645.77,-949.594 642,-945 488.951,-758.521 738.244,-579.893 570,-407 552.008,-388.511 526.702,-379.531 501.218,-375.712"/>
+<g id="edge7" class="edge"><title>\\AuditDeltaFixture&#45;&gt;\\CakeTestFixture</title>
+<path fill="none" stroke="black" d="M655.349,-1010.62C650.312,-1007.45 645.742,-1003.62 642,-999 475.081,-793.113 753.703,-598.061 570,-407 552.03,-388.31 526.594,-379.299 500.978,-375.515"/>
+<polygon fill="none" stroke="black" points="501.135,-372.009 490.785,-374.274 500.288,-378.957 501.135,-372.009"/>
+</g>
+<!-- \\AuthorFixture -->
+<g id="node5" class="node"><title>\\AuthorFixture</title>
+<polygon fill="none" stroke="black" points="773,-990 669,-990 669,-954 773,-954 773,-990"/>
+<text text-anchor="middle" x="721" y="-969.1" font-family="Courier,monospace" font-size="11.00">AuthorFixture</text>
+</g>
+<!-- \\AuthorFixture&#45;&gt;\\CakeTestFixture -->
+<g id="edge9" class="edge"><title>\\AuthorFixture&#45;&gt;\\CakeTestFixture</title>
+<path fill="none" stroke="black" d="M668.711,-963.196C658.533,-959.2 648.897,-953.403 642,-945 488.951,-758.521 738.244,-579.893 570,-407 552.008,-388.511 526.702,-379.531 501.218,-375.712"/>
 <polygon fill="none" stroke="black" points="501.432,-372.212 491.077,-374.453 500.57,-379.158 501.432,-372.212"/>
 </g>
-<!-- \\ArticleFixture -->
-<g id="node6" class="node"><title>\\ArticleFixture</title>
-<polygon fill="none" stroke="black" points="776,-1152 666,-1152 666,-1116 776,-1116 776,-1152"/>
-<text text-anchor="middle" x="721" y="-1131.1" font-family="Courier,monospace" font-size="11.00">ArticleFixture</text>
+<!-- \\AuditFixture -->
+<g id="node6" class="node"><title>\\AuditFixture</title>
+<polygon fill="none" stroke="black" points="770,-1152 672,-1152 672,-1116 770,-1116 770,-1152"/>
+<text text-anchor="middle" x="721" y="-1131.1" font-family="Courier,monospace" font-size="11.00">AuditFixture</text>
 </g>
-<!-- \\ArticleFixture&#45;&gt;\\CakeTestFixture -->
-<g id="edge11" class="edge"><title>\\ArticleFixture&#45;&gt;\\CakeTestFixture</title>
-<path fill="none" stroke="black" d="M665.287,-1124.01C656.338,-1120.07 648.046,-1114.6 642,-1107 544.65,-984.622 677.334,-520.723 570,-407 552.115,-388.05 526.568,-378.992 500.818,-375.246"/>
+<!-- \\AuditFixture&#45;&gt;\\CakeTestFixture -->
+<g id="edge11" class="edge"><title>\\AuditFixture&#45;&gt;\\CakeTestFixture</title>
+<path fill="none" stroke="black" d="M671.789,-1126.57C660.427,-1122.56 649.489,-1116.41 642,-1107 544.65,-984.622 677.334,-520.723 570,-407 552.115,-388.05 526.568,-378.992 500.818,-375.246"/>
 <polygon fill="none" stroke="black" points="500.914,-371.732 490.57,-374.024 500.085,-378.683 500.914,-371.732"/>
 </g>
-<!-- \\AuditHelperTest -->
-<g id="node7" class="node"><title>\\AuditHelperTest</title>
-<polygon fill="none" stroke="black" points="780,-882 662,-882 662,-846 780,-846 780,-882"/>
-<text text-anchor="middle" x="721" y="-861.1" font-family="Courier,monospace" font-size="11.00">AuditHelperTest</text>
-</g>
-<!-- \\CakeTestCase -->
-<g id="node29" class="node"><title>\\CakeTestCase</title>
-<ellipse fill="none" stroke="black" cx="403" cy="-326" rx="82.0244" ry="18.3848"/>
-<text text-anchor="middle" x="403" y="-322.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\CakeTestCase</text>
-</g>
-<!-- \\AuditHelperTest&#45;&gt;\\CakeTestCase -->
-<g id="edge13" class="edge"><title>\\AuditHelperTest&#45;&gt;\\CakeTestCase</title>
-<path fill="none" stroke="black" d="M661.984,-852.121C654.378,-848.377 647.381,-843.459 642,-837 502.801,-669.906 722.808,-507.747 570,-353 549.325,-332.063 519.255,-323.378 490.31,-320.563"/>
-<polygon fill="none" stroke="black" points="490.369,-317.057 480.136,-319.801 489.847,-324.038 490.369,-317.057"/>
-</g>
 <!-- \\Article -->
-<g id="node8" class="node"><title>\\Article</title>
-<polygon fill="none" stroke="black" points="753,-774 689,-774 689,-738 753,-738 753,-774"/>
-<text text-anchor="middle" x="721" y="-753.1" font-family="Courier,monospace" font-size="11.00">Article</text>
+<g id="node7" class="node"><title>\\Article</title>
+<polygon fill="none" stroke="black" points="753,-882 689,-882 689,-846 753,-846 753,-882"/>
+<text text-anchor="middle" x="721" y="-861.1" font-family="Courier,monospace" font-size="11.00">Article</text>
 </g>
 <!-- \\CakeTestModel -->
-<g id="node31" class="node"><title>\\CakeTestModel</title>
-<ellipse fill="none" stroke="black" cx="403" cy="-272" rx="86.9741" ry="18.3848"/>
-<text text-anchor="middle" x="403" y="-268.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\CakeTestModel</text>
+<g id="node29" class="node"><title>\\CakeTestModel</title>
+<ellipse fill="none" stroke="black" cx="403" cy="-326" rx="86.9741" ry="18.3848"/>
+<text text-anchor="middle" x="403" y="-322.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\CakeTestModel</text>
 </g>
 <!-- \\Article&#45;&gt;\\CakeTestModel -->
-<g id="edge15" class="edge"><title>\\Article&#45;&gt;\\CakeTestModel</title>
-<path fill="none" stroke="black" d="M688.924,-752.797C672.527,-749.467 653.629,-742.704 642,-729 516.623,-581.256 707.401,-435.632 570,-299 550.525,-279.634 522.993,-270.813 495.89,-267.419"/>
-<polygon fill="none" stroke="black" points="496.244,-263.937 485.94,-266.404 495.533,-270.9 496.244,-263.937"/>
+<g id="edge13" class="edge"><title>\\Article&#45;&gt;\\CakeTestModel</title>
+<path fill="none" stroke="black" d="M688.824,-860.882C672.398,-857.575 653.504,-850.809 642,-837 502.801,-669.906 722.808,-507.747 570,-353 550.518,-333.271 522.694,-324.421 495.33,-321.11"/>
+<polygon fill="none" stroke="black" points="495.578,-317.618 485.286,-320.131 494.899,-324.584 495.578,-317.618"/>
 </g>
 <!-- \\Author -->
-<g id="node9" class="node"><title>\\Author</title>
-<polygon fill="none" stroke="black" points="749,-828 693,-828 693,-792 749,-792 749,-828"/>
-<text text-anchor="middle" x="721" y="-807.1" font-family="Courier,monospace" font-size="11.00">Author</text>
+<g id="node8" class="node"><title>\\Author</title>
+<polygon fill="none" stroke="black" points="749,-936 693,-936 693,-900 749,-900 749,-936"/>
+<text text-anchor="middle" x="721" y="-915.1" font-family="Courier,monospace" font-size="11.00">Author</text>
 </g>
 <!-- \\Author&#45;&gt;\\CakeTestModel -->
-<g id="edge17" class="edge"><title>\\Author&#45;&gt;\\CakeTestModel</title>
-<path fill="none" stroke="black" d="M692.358,-807.548C675.18,-804.52 654.339,-797.811 642,-783 502.801,-615.906 722.808,-453.747 570,-299 550.518,-279.271 522.694,-270.421 495.33,-267.11"/>
-<polygon fill="none" stroke="black" points="495.578,-263.618 485.286,-266.131 494.899,-270.584 495.578,-263.618"/>
+<g id="edge15" class="edge"><title>\\Author&#45;&gt;\\CakeTestModel</title>
+<path fill="none" stroke="black" d="M692.283,-915.61C675.075,-912.607 654.23,-905.901 642,-891 488.951,-704.521 738.244,-525.893 570,-353 550.572,-333.035 522.615,-324.158 495.116,-320.894"/>
+<polygon fill="none" stroke="black" points="495.308,-317.396 485.022,-319.935 494.646,-324.365 495.308,-317.396"/>
 </g>
 <!-- \\Audit -->
-<g id="node10" class="node"><title>\\Audit</title>
+<g id="node9" class="node"><title>\\Audit</title>
 <polygon fill="none" stroke="black" points="748,-1314 694,-1314 694,-1278 748,-1278 748,-1314"/>
 <text text-anchor="middle" x="721" y="-1293.1" font-family="Courier,monospace" font-size="11.00">Audit</text>
 </g>
@@ -131,59 +116,74 @@
 <text text-anchor="middle" x="403" y="-1239.1" font-family="Courier,monospace" font-size="11.00">AuditLogAppModel</text>
 </g>
 <!-- \\Audit&#45;&gt;\\AuditLogAppModel -->
-<g id="edge19" class="edge"><title>\\Audit&#45;&gt;\\AuditLogAppModel</title>
+<g id="edge17" class="edge"><title>\\Audit&#45;&gt;\\AuditLogAppModel</title>
 <path fill="none" stroke="black" d="M693.887,-1291.4C646.001,-1283.26 544.961,-1266.11 475.531,-1254.32"/>
 <polygon fill="none" stroke="black" points="475.972,-1250.84 465.527,-1252.62 474.8,-1257.74 475.972,-1250.84"/>
 </g>
 <!-- \\AuditDelta -->
-<g id="node11" class="node"><title>\\AuditDelta</title>
+<g id="node10" class="node"><title>\\AuditDelta</title>
 <polygon fill="none" stroke="black" points="763,-1260 679,-1260 679,-1224 763,-1224 763,-1260"/>
 <text text-anchor="middle" x="721" y="-1239.1" font-family="Courier,monospace" font-size="11.00">AuditDelta</text>
 </g>
 <!-- \\AuditDelta&#45;&gt;\\AuditLogAppModel -->
-<g id="edge21" class="edge"><title>\\AuditDelta&#45;&gt;\\AuditLogAppModel</title>
+<g id="edge19" class="edge"><title>\\AuditDelta&#45;&gt;\\AuditLogAppModel</title>
 <path fill="none" stroke="black" d="M678.772,-1242C627.079,-1242 538.686,-1242 475.917,-1242"/>
 <polygon fill="none" stroke="black" points="475.683,-1238.5 465.683,-1242 475.683,-1245.5 475.683,-1238.5"/>
 </g>
 <!-- \\AuditableBehaviorTest -->
-<g id="node12" class="node"><title>\\AuditableBehaviorTest</title>
-<polygon fill="none" stroke="black" points="800,-936 642,-936 642,-900 800,-900 800,-936"/>
-<text text-anchor="middle" x="721" y="-915.1" font-family="Courier,monospace" font-size="11.00">AuditableBehaviorTest</text>
+<g id="node11" class="node"><title>\\AuditableBehaviorTest</title>
+<polygon fill="none" stroke="black" points="800,-774 642,-774 642,-738 800,-738 800,-774"/>
+<text text-anchor="middle" x="721" y="-753.1" font-family="Courier,monospace" font-size="11.00">AuditableBehaviorTest</text>
+</g>
+<!-- \\CakeTestCase -->
+<g id="node34" class="node"><title>\\CakeTestCase</title>
+<ellipse fill="none" stroke="black" cx="403" cy="-272" rx="82.0244" ry="18.3848"/>
+<text text-anchor="middle" x="403" y="-268.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\CakeTestCase</text>
 </g>
 <!-- \\AuditableBehaviorTest&#45;&gt;\\CakeTestCase -->
-<g id="edge23" class="edge"><title>\\AuditableBehaviorTest&#45;&gt;\\CakeTestCase</title>
-<path fill="none" stroke="black" d="M651.45,-899.884C647.956,-897.305 644.759,-894.361 642,-891 488.951,-704.521 738.244,-525.893 570,-353 549.387,-331.818 519.174,-323.117 490.093,-320.358"/>
-<polygon fill="none" stroke="black" points="490.098,-316.849 479.872,-319.619 489.593,-323.831 490.098,-316.849"/>
+<g id="edge21" class="edge"><title>\\AuditableBehaviorTest&#45;&gt;\\CakeTestCase</title>
+<path fill="none" stroke="black" d="M651.579,-737.777C648.052,-735.225 644.813,-732.315 642,-729 516.623,-581.256 707.401,-435.632 570,-299 549.228,-278.345 519.293,-269.686 490.486,-266.811"/>
+<polygon fill="none" stroke="black" points="490.602,-263.31 480.361,-266.025 490.061,-270.289 490.602,-263.31"/>
 </g>
 <!-- \\User -->
-<g id="node13" class="node"><title>\\User</title>
+<g id="node12" class="node"><title>\\User</title>
 <polygon fill="none" stroke="black" points="748,-720 694,-720 694,-684 748,-684 748,-720"/>
 <text text-anchor="middle" x="721" y="-699.1" font-family="Courier,monospace" font-size="11.00">User</text>
 </g>
 <!-- \\AppModel -->
-<g id="node37" class="node"><title>\\AppModel</title>
+<g id="node36" class="node"><title>\\AppModel</title>
 <ellipse fill="none" stroke="black" cx="82" cy="-734" rx="62.2254" ry="18.3848"/>
 <text text-anchor="middle" x="82" y="-730.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\AppModel</text>
 </g>
 <!-- \\User&#45;&gt;\\AppModel -->
-<g id="edge25" class="edge"><title>\\User&#45;&gt;\\AppModel</title>
+<g id="edge23" class="edge"><title>\\User&#45;&gt;\\AppModel</title>
 <path fill="none" stroke="black" d="M693.988,-699.736C676.57,-696.808 654.848,-690.14 642,-675 516.623,-527.256 717.899,-370.193 570,-245 513.349,-197.046 295.849,-201.102 236,-245 158.601,-301.772 102.306,-609.999 86.4957,-705.665"/>
 <polygon fill="none" stroke="black" points="83.006,-705.319 84.8493,-715.752 89.9146,-706.446 83.006,-705.319"/>
 </g>
 <!-- \\AuditControllerTest -->
-<g id="node14" class="node"><title>\\AuditControllerTest</title>
+<g id="node13" class="node"><title>\\AuditControllerTest</title>
 <polygon fill="none" stroke="black" points="793,-666 649,-666 649,-630 793,-630 793,-666"/>
 <text text-anchor="middle" x="721" y="-645.1" font-family="Courier,monospace" font-size="11.00">AuditControllerTest</text>
 </g>
 <!-- \\ControllerTestCase -->
-<g id="node39" class="node"><title>\\ControllerTestCase</title>
+<g id="node38" class="node"><title>\\ControllerTestCase</title>
 <ellipse fill="none" stroke="black" cx="403" cy="-180" rx="106.773" ry="18.3848"/>
 <text text-anchor="middle" x="403" y="-176.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\ControllerTestCase</text>
 </g>
 <!-- \\AuditControllerTest&#45;&gt;\\ControllerTestCase -->
-<g id="edge27" class="edge"><title>\\AuditControllerTest&#45;&gt;\\ControllerTestCase</title>
+<g id="edge25" class="edge"><title>\\AuditControllerTest&#45;&gt;\\ControllerTestCase</title>
 <path fill="none" stroke="black" d="M651.611,-629.75C648.077,-627.204 644.827,-624.304 642,-621 521.989,-480.77 699.526,-343.492 570,-212 556.328,-198.12 538.607,-189.27 519.832,-183.779"/>
 <polygon fill="none" stroke="black" points="520.493,-180.335 509.934,-181.205 518.731,-187.109 520.493,-180.335"/>
+</g>
+<!-- \\AuditHelperTest -->
+<g id="node14" class="node"><title>\\AuditHelperTest</title>
+<polygon fill="none" stroke="black" points="780,-828 662,-828 662,-792 780,-792 780,-828"/>
+<text text-anchor="middle" x="721" y="-807.1" font-family="Courier,monospace" font-size="11.00">AuditHelperTest</text>
+</g>
+<!-- \\AuditHelperTest&#45;&gt;\\CakeTestCase -->
+<g id="edge27" class="edge"><title>\\AuditHelperTest&#45;&gt;\\CakeTestCase</title>
+<path fill="none" stroke="black" d="M661.984,-798.121C654.378,-794.377 647.381,-789.459 642,-783 502.801,-615.906 722.808,-453.747 570,-299 549.325,-278.063 519.255,-269.378 490.31,-266.563"/>
+<polygon fill="none" stroke="black" points="490.369,-263.057 480.136,-265.801 489.847,-270.038 490.369,-263.057"/>
 </g>
 <!-- \\AllAuditLogTest -->
 <g id="node15" class="node"><title>\\AllAuditLogTest</title>
@@ -245,20 +245,20 @@
 <path fill="none" stroke="black" d="M661.932,-1350C614.347,-1350 546.681,-1350 492.454,-1350"/>
 <polygon fill="none" stroke="black" points="492.146,-1346.5 482.146,-1350 492.146,-1353.5 492.146,-1346.5"/>
 </g>
-<!-- \\AuditLogSchema -->
-<g id="node20" class="node"><title>\\AuditLogSchema</title>
-<polygon fill="none" stroke="black" points="776,-504 666,-504 666,-468 776,-468 776,-504"/>
-<text text-anchor="middle" x="721" y="-483.1" font-family="Courier,monospace" font-size="11.00">AuditLogSchema</text>
+<!-- \\AuditHelper -->
+<g id="node20" class="node"><title>\\AuditHelper</title>
+<polygon fill="none" stroke="black" points="766,-504 676,-504 676,-468 766,-468 766,-504"/>
+<text text-anchor="middle" x="721" y="-483.1" font-family="Courier,monospace" font-size="11.00">AuditHelper</text>
 </g>
-<!-- \\CakeSchema -->
-<g id="node49" class="node"><title>\\CakeSchema</title>
-<ellipse fill="none" stroke="black" cx="403" cy="-18" rx="77.0746" ry="18.3848"/>
-<text text-anchor="middle" x="403" y="-14.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\CakeSchema</text>
+<!-- \\AppHelper -->
+<g id="node49" class="node"><title>\\AppHelper</title>
+<ellipse fill="none" stroke="black" cx="403" cy="-18" rx="65.0538" ry="18.3848"/>
+<text text-anchor="middle" x="403" y="-14.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\AppHelper</text>
 </g>
-<!-- \\AuditLogSchema&#45;&gt;\\CakeSchema -->
-<g id="edge39" class="edge"><title>\\AuditLogSchema&#45;&gt;\\CakeSchema</title>
-<path fill="none" stroke="black" d="M717.351,-467.794C701.795,-392.021 638.67,-102.91 570,-45 547.506,-26.0307 517.041,-17.7736 488.288,-14.7495"/>
-<polygon fill="none" stroke="black" points="488.467,-11.2521 478.206,-13.8891 487.872,-18.2268 488.467,-11.2521"/>
+<!-- \\AuditHelper&#45;&gt;\\AppHelper -->
+<g id="edge39" class="edge"><title>\\AuditHelper&#45;&gt;\\AppHelper</title>
+<path fill="none" stroke="black" d="M717.351,-467.794C701.795,-392.021 638.67,-102.91 570,-45 544.372,-23.3877 508.397,-15.6807 476.396,-13.7754"/>
+<polygon fill="none" stroke="black" points="476.301,-10.2685 466.164,-13.3504 476.011,-17.2625 476.301,-10.2685"/>
 </g>
 </g>
 </svg>
