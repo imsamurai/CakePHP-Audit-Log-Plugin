@@ -49,10 +49,10 @@ echo $this->Form->create('Task', array('type' => 'get', 'class' => 'batch-form',
 						<ul class="dropdown-menu pull-right">
 							<?php
 							echo $this->Html->tag('li', $this->Html->link('View', array('action' => 'view', $audit['id'])));
-							if ($this->elementExists('..' . DS . 'Audit' . DS . $name)) :
+							if ($this->elementExists('..' . DS . 'AuditDetails' . DS . $name)) :
 								echo $this->Html->tag('li', $this->Html->link('Details', array(
-									'controller' => 'audit',
-									'action' => 'details', 
+									'controller' => 'audit_details',
+									'action' => 'index', 
 									$audit['id'], 
 									$name, 
 									'plugin' => false))); 
