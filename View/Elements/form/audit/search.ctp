@@ -38,7 +38,16 @@ echo $this->Form->create('Audit', array(
 		?>
 	</div>
 	<div class="div-right">
-		<?= $this->Form->input('model', array('class' => 'input-large')); ?>
+		<?php
+		if (!empty($modelsList)) {
+			echo $this->Form->input('model', array(
+				'options' => array('' => 'All') + $modelsList,
+				'type' => 'select'
+			));
+		} else {
+			echo $this->Form->input('model', array('class' => 'input-large'));
+		}
+		?>
 	</div>
 </div>
 <div style="float:left;width:300px;">
