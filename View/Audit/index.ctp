@@ -43,7 +43,7 @@ echo $this->Form->create('Task', array('type' => 'get', 'class' => 'batch-form',
 				<td><?= $audit['model']; ?></td>
 				<td><?= $audit['entity_id']; ?></td>
 				<td><?= $this->Audit->user($one['User']); ?></td>
-				<td nowrap="nowrap" title="<?= $audit['created']; ?>"><?= $this->Time->timeAgoInWords($audit['created']); ?></td>
+				<td nowrap="nowrap" title="<?= $audit['created']; ?>"><?= $audit['created']; ?></td>
 				<td>
 					<div class="btn-group"><button class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-tasks"></i><span class="caret"></span></button>
 						<ul class="dropdown-menu pull-right">

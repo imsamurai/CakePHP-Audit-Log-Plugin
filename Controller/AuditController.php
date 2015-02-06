@@ -73,6 +73,7 @@ class AuditController extends AuditLogAppController {
 			'users' => $this->User->find('list', array(
 				'fields' => array('id', Configure::read('AuditLog.User.name'))
 			)),
+			'modelsList' => $this->_getModelsList(),
 			'_serialize' => array('data')
 		));
 		if ($list) {
@@ -164,4 +165,13 @@ class AuditController extends AuditLogAppController {
 		return $conditions;
 	}
 
+	/**
+	 * Returns models list
+	 * @return array
+	 */
+	protected function _getModelsList() {
+		$models = (array)Configure::read('AuditLog.models');
+		$modelsKeys = array_keys($models);
+		return array_combine($modelsKeys, $modelsKeys);
+	}
 }
